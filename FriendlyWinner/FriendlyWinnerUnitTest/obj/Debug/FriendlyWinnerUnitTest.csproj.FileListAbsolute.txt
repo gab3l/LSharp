@@ -1,0 +1,7 @@
+C:\Users\John\Documents\Visual Studio 2012\Projects\FriendlyWinner\FriendlyWinnerUnitTest\bin\Debug\FriendlyWinnerUnitTest.dll
+C:\Users\John\Documents\Visual Studio 2012\Projects\FriendlyWinner\FriendlyWinnerUnitTest\bin\Debug\FriendlyWinnerUnitTest.pdb
+C:\Users\John\Documents\Visual Studio 2012\Projects\FriendlyWinner\FriendlyWinnerUnitTest\bin\Debug\FriendlyWinner.exe
+C:\Users\John\Documents\Visual Studio 2012\Projects\FriendlyWinner\FriendlyWinnerUnitTest\bin\Debug\FriendlyWinner.pdb
+C:\Users\John\Documents\Visual Studio 2012\Projects\FriendlyWinner\FriendlyWinnerUnitTest\obj\Debug\FriendlyWinnerUnitTest.csprojResolveAssemblyReference.cache
+C:\Users\John\Documents\Visual Studio 2012\Projects\FriendlyWinner\FriendlyWinnerUnitTest\obj\Debug\FriendlyWinnerUnitTest.dll
+C:\Users\John\Documents\Visual Studio 2012\Projects\FriendlyWinner\FriendlyWinnerUnitTest\obj\Debug\FriendlyWinnerUnitTest.pdb
