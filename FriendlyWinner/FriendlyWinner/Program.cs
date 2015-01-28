@@ -1,5 +1,4 @@
 ﻿using System;
-using LeagueSharp;
 using LeagueSharp.Common;
 
 namespace FriendlyWinner
@@ -17,7 +16,6 @@ namespace FriendlyWinner
             LeagueSharp.Game.OnGameStart += Game.Game_OnGameStart;
             LeagueSharp.Game.OnGameUpdate += Game.Game_Update;
             CustomEvents.Game.OnGameEnd += RemoveEventHandler;
-
         }
     }
 }

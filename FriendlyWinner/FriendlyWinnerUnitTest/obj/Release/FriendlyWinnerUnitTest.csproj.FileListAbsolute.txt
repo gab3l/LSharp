@@ -12,3 +12,17 @@ C:\Users\John\Desktop\FriendlyWinner\FriendlyWinnerUnitTest\bin\Release\Friendly
 C:\Users\John\Desktop\FriendlyWinner\FriendlyWinnerUnitTest\obj\Release\FriendlyWinnerUnitTest.csprojResolveAssemblyReference.cache
 C:\Users\John\Desktop\FriendlyWinner\FriendlyWinnerUnitTest\obj\Release\FriendlyWinnerUnitTest.dll
 C:\Users\John\Desktop\FriendlyWinner\FriendlyWinnerUnitTest\obj\Release\FriendlyWinnerUnitTest.pdb
+C:\Users\John\Documents\GitHub\LSharp\FriendlyWinner\FriendlyWinnerUnitTest\bin\Release\FriendlyWinnerUnitTest.dll
+C:\Users\John\Documents\GitHub\LSharp\FriendlyWinner\FriendlyWinnerUnitTest\bin\Release\FriendlyWinnerUnitTest.pdb
+C:\Users\John\Documents\GitHub\LSharp\FriendlyWinner\FriendlyWinnerUnitTest\bin\Release\FriendlyWinner.exe
+C:\Users\John\Documents\GitHub\LSharp\FriendlyWinner\FriendlyWinnerUnitTest\bin\Release\FriendlyWinnerDll.dll
+C:\Users\John\Documents\GitHub\LSharp\FriendlyWinner\FriendlyWinnerUnitTest\bin\Release\LeagueSharp.Common.dll
+C:\Users\John\Documents\GitHub\LSharp\FriendlyWinner\FriendlyWinnerUnitTest\bin\Release\LeagueSharp.dll
+C:\Users\John\Documents\GitHub\LSharp\FriendlyWinner\FriendlyWinnerUnitTest\bin\Release\SharpDX.Direct3D9.dll
+C:\Users\John\Documents\GitHub\LSharp\FriendlyWinner\FriendlyWinnerUnitTest\bin\Release\SharpDX.dll
+C:\Users\John\Documents\GitHub\LSharp\FriendlyWinner\FriendlyWinnerUnitTest\bin\Release\clipper_library.dll
+C:\Users\John\Documents\GitHub\LSharp\FriendlyWinner\FriendlyWinnerUnitTest\bin\Release\FriendlyWinnerDll.pdb
+C:\Users\John\Documents\GitHub\LSharp\FriendlyWinner\FriendlyWinnerUnitTest\bin\Release\FriendlyWinner.pdb
+C:\Users\John\Documents\GitHub\LSharp\FriendlyWinner\FriendlyWinnerUnitTest\obj\Release\FriendlyWinnerUnitTest.csprojResolveAssemblyReference.cache
+C:\Users\John\Documents\GitHub\LSharp\FriendlyWinner\FriendlyWinnerUnitTest\obj\Release\FriendlyWinnerUnitTest.dll
+C:\Users\John\Documents\GitHub\LSharp\FriendlyWinner\FriendlyWinnerUnitTest\obj\Release\FriendlyWinnerUnitTest.pdb

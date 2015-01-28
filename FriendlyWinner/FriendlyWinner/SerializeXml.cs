@@ -1,15 +1,14 @@
-﻿namespace FriendlyWinner
-{
-    using System;
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Xml.Serialization;
+﻿using System;
+using System.IO;
+using System.Xml.Serialization;
 
+namespace FriendlyWinner
+{
     /// <summary>
-    /// This class contains properties that a View can data bind to.
-    /// <para>
-    /// See http://www.galasoft.ch/mvvm
-    /// </para>
+    ///     This class contains properties that a View can data bind to.
+    ///     <para>
+    ///         See http://www.galasoft.ch/mvvm
+    ///     </para>
     /// </summary>
     public class SerializeXml
     {

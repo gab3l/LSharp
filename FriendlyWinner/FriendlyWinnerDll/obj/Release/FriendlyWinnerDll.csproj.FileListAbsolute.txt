@@ -1,0 +1,5 @@
+C:\Users\John\Documents\GitHub\LSharp\FriendlyWinner\FriendlyWinnerDll\bin\Release\FriendlyWinnerDll.dll
+C:\Users\John\Documents\GitHub\LSharp\FriendlyWinner\FriendlyWinnerDll\bin\Release\FriendlyWinnerDll.pdb
+C:\Users\John\Documents\GitHub\LSharp\FriendlyWinner\FriendlyWinnerDll\obj\Release\FriendlyWinnerDll.csprojResolveAssemblyReference.cache
+C:\Users\John\Documents\GitHub\LSharp\FriendlyWinner\FriendlyWinnerDll\obj\Release\FriendlyWinnerDll.dll
+C:\Users\John\Documents\GitHub\LSharp\FriendlyWinner\FriendlyWinnerDll\obj\Release\FriendlyWinnerDll.pdb

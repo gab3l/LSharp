@@ -1,11 +1,10 @@
-﻿namespace FriendlyWinnerDll
-{
-    using FriendlyWinnerDll.Data;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using FriendlyWinnerDll.Data;
 
+namespace FriendlyWinnerDll
+{
     public class FriendlyWinner
     {
         static FriendlyWinner()
@@ -19,7 +18,7 @@
         {
             return list.Any(x => x.DateTime.AddMinutes(minutes) < DateTime.Now);
         }
-        
+
         public static MyMessage GetMessage(IList<MyMessage> messages)
         {
             var unusedMessages = messages.Where(x => !x.IsUsed);
@@ -39,7 +38,7 @@
         }
 
         /// <summary>
-        /// Helper for Tests
+        ///     Helper for Tests
         /// </summary>
         public static string GetNewMessage(Func<List<MyMessage>, MyMessage> function, List<MyMessage> myMessages)
         {
