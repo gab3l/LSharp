@@ -85,9 +85,10 @@ namespace RelaxedWinner
             if (UserInterface.IsEndMessageTeam)
             {
                 ChatTalk(
-                      2000, 3000,
+                      3000, 4000,
                       RelaxedWinnerDll.RelaxedWinner.GetMessage(RelaxedWinnerDll.RelaxedWinner.MessageData.GameEnd).Message); 
             }
+
             LeagueSharp.Game.OnGameUpdate -= GameEnd;
         }
     }
