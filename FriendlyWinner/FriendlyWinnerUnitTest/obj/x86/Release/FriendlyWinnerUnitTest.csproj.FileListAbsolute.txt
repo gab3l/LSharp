@@ -1,7 +1,0 @@
-C:\Users\John\Documents\Visual Studio 2012\Projects\FriendlyWinner\FriendlyWinnerUnitTest\obj\x86\Release\FriendlyWinnerUnitTest.csprojResolveAssemblyReference.cache
-C:\Users\John\Documents\Visual Studio 2012\Projects\FriendlyWinner\FriendlyWinnerUnitTest\bin\x86\Release\FriendlyWinnerUnitTest.dll
-C:\Users\John\Documents\Visual Studio 2012\Projects\FriendlyWinner\FriendlyWinnerUnitTest\bin\x86\Release\FriendlyWinnerUnitTest.pdb
-C:\Users\John\Documents\Visual Studio 2012\Projects\FriendlyWinner\FriendlyWinnerUnitTest\bin\x86\Release\FriendlyWinnerDll.dll
-C:\Users\John\Documents\Visual Studio 2012\Projects\FriendlyWinner\FriendlyWinnerUnitTest\bin\x86\Release\FriendlyWinnerDll.pdb
-C:\Users\John\Documents\Visual Studio 2012\Projects\FriendlyWinner\FriendlyWinnerUnitTest\obj\x86\Release\FriendlyWinnerUnitTest.dll
-C:\Users\John\Documents\Visual Studio 2012\Projects\FriendlyWinner\FriendlyWinnerUnitTest\obj\x86\Release\FriendlyWinnerUnitTest.pdb
