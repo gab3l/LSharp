@@ -23,7 +23,7 @@ namespace RelaxedWinner
             }
 
             LeagueSharp.Game.OnGameStart += Game.Game_OnGameStart;
-            LeagueSharp.Game.OnGameEnd += Game.GameEnd;
+            LeagueSharp.Game.OnGameUpdate += Game.GameEnd;
             CustomEvents.Game.OnGameEnd += RemoveEventHandler;
         }
 
