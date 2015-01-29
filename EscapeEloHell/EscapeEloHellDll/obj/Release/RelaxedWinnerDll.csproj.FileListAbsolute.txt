@@ -1,4 +1,0 @@
-C:\Users\RPompetzki\Documents\GitHub\LSharp\FriendlyWinner\EscapeEloHellDll\bin\Release\RelaxedWinnerdll.dll
-C:\Users\RPompetzki\Documents\GitHub\LSharp\FriendlyWinner\EscapeEloHellDll\bin\Release\RelaxedWinnerdll.pdb
-C:\Users\RPompetzki\Documents\GitHub\LSharp\FriendlyWinner\EscapeEloHellDll\obj\Release\RelaxedWinnerdll.dll
-C:\Users\RPompetzki\Documents\GitHub\LSharp\FriendlyWinner\EscapeEloHellDll\obj\Release\RelaxedWinnerdll.pdb
