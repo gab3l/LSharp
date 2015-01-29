@@ -17,11 +17,11 @@ namespace RelaxedWinner
                     20, RelaxedWinnerDll.RelaxedWinner.MessageData.GameStart) && UserInterface.IsStartMessage)
             {
                 ChatTalk(
-                    6000, 15000,
+                    15000, 25000,
                     RelaxedWinnerDll.RelaxedWinner.GetMessage(RelaxedWinnerDll.RelaxedWinner.MessageData.GameStart)
                         .Message);
                 ChatTalk(
-                    20000, 35000,
+                    29000, 45000,
                     @"/all " +
                     RelaxedWinnerDll.RelaxedWinner.GetMessage(RelaxedWinnerDll.RelaxedWinner.MessageData.GameStart)
                         .Message);
@@ -37,7 +37,7 @@ namespace RelaxedWinner
         {
             if (active)
             {
-                ChatTalk(36000, 36000, @"/mute all");
+                ChatTalk(46000, 46000, @"/mute all");
             }
         }
 
