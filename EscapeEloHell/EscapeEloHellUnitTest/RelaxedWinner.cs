@@ -77,16 +77,24 @@ namespace FriendlyWinnerUnitTest
             {
                 new Information { Message = "gg" },
                 new Information { Message = "GG" },
+                new Information { Message = "wp" },
+                new Information { Message = "WP" },
                 new Information { Message = "gg all" },
                 new Information { Message = "GG all" },
                 new Information { Message = "good game all" },
-                new Information { Message = "gg wp" }
+                new Information { Message = "good game" },
+                new Information { Message = "gg wp" },
+                new Information { Message = "gg wp" },
             };
+
             RelaxedWinnerDll.RelaxedWinner.MessageData.GameStart = new List<Information>
             {
-                new Information { Message = "gl & hf" },
                 new Information { Message = "GL HF" },
-                new Information { Message = "GL && HF" }
+                new Information { Message = "gl hf" },
+                new Information { Message = "GL & HF" },
+                new Information { Message = "gl & hf" },
+                new Information { Message = "GL && HF" },
+                new Information { Message = "gl && hf" },
             };
         }
 
