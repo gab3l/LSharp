@@ -27,8 +27,8 @@ namespace RelaxedWinner
 
             // SubMenu Configuration
             Menu.AddSubMenu(new Menu("Configuration", "configuration", true));
-            Menu.AddItem(new MenuItem("StartMessage", "startmessage").SetValue(true));
-            Menu.AddItem(new MenuItem("EndMessage", "endmessage").SetValue(true));
+            Menu.SubMenu("configuration").AddItem(new MenuItem("StartMessage", "startmessage").SetValue(true));
+            Menu.SubMenu("configuration").AddItem(new MenuItem("EndMessage", "endmessage").SetValue(true));
             Menu.AddToMainMenu();
         }
 
