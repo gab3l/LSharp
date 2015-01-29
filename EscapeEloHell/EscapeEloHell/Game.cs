@@ -37,16 +37,25 @@ namespace RelaxedWinner
 
             }
 
-            ToogleMuteAll(UserInterface.IsMuteAll);
+            ToogleMuteAll(UserInterface.IsMuteAll, false);
 
             Files.Save();
         }
 
-        private static void ToogleMuteAll(bool active)
+        private static void ToogleMuteAll(bool active, bool endGame)
         {
-            if (active)
+            if (!active)
             {
-                ChatTalk(61000, 61000, @"/mute all");
+                return;
+            }
+
+            if (endGame)
+            {
+                LeagueSharp.Game.Say(@"/mute all");
+            }
+            else
+            {
+                ChatTalk(61000, 61000, @"/mute all"); 
             }
         }
 
@@ -73,7 +82,7 @@ namespace RelaxedWinner
                 return;
             }
 
-            ToogleMuteAll(UserInterface.IsMuteAll);
+            ToogleMuteAll(UserInterface.IsMuteAll, true);
 
             if (UserInterface.IsEndMessageAll)
             {
