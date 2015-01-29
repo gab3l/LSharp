@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using RelaxedWinnerDll.Data;
+using RelaxedWinnerDll.Model;
 using LeagueSharp.Common;
 
 namespace RelaxedWinner

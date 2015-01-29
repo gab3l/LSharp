@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using RelaxedWinnerDll.Data;
+using RelaxedWinnerDll.Model;
 
 namespace RelaxedWinnerDll
 {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
-using RelaxedWinnerDll.Data;
+using RelaxedWinnerDll.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace FriendlyWinnerUnitTest
