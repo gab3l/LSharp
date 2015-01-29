@@ -36,7 +36,7 @@ namespace RelaxedWinner
             submenu.AddItem(new MenuItem("startmessageall", "StartMessage All").SetValue(true));
             submenu.AddItem(new MenuItem("endmessageteam", "EndMessage Team").SetValue(true));
             submenu.AddItem(new MenuItem("endmessageall", "EndMessage All").SetValue(true));
-            submenu.AddItem(new MenuItem("muteall", "Mute Teams while game").SetValue(true));
+            submenu.AddItem(new MenuItem("muteall", "Mute Teams while ingame").SetValue(true));
             Menu.AddToMainMenu();
         }
 

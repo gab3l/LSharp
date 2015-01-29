@@ -15,7 +15,6 @@ namespace RelaxedWinner
         {
             Initialize();
 
-            LeagueSharp.Game.PrintChat("Relaxed Winner loaded.");
             if (!UserInterface.IsEnabled)
             {
                 LeagueSharp.Game.PrintChat("Relaxed Winner disabled!");

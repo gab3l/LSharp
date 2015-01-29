@@ -13,13 +13,15 @@ namespace RelaxedWinner
        
         public static void Game_OnGameStart(EventArgs args)
         {
+            LeagueSharp.Game.PrintChat("Relaxed Winner loaded.");
+
             if (RelaxedWinnerDll.RelaxedWinner.RepeatMaximum(
                     20, RelaxedWinnerDll.RelaxedWinner.MessageData.GameStart))
             {
                 if (UserInterface.IsStartMessageTeam)
                 {
                     ChatTalk(
-                               15000, 25000,
+                               15000, 35000,
                                RelaxedWinnerDll.RelaxedWinner.GetMessage(RelaxedWinnerDll.RelaxedWinner.MessageData.GameStart)
                                    .Message); 
                 }
@@ -27,7 +29,7 @@ namespace RelaxedWinner
                 if (UserInterface.IsStartMessageAll)
                 {
                     ChatTalk(
-                        29000, 45000,
+                        38000, 60000,
                         @"/all " +
                         RelaxedWinnerDll.RelaxedWinner.GetMessage(RelaxedWinnerDll.RelaxedWinner.MessageData.GameStart)
                             .Message);
@@ -44,7 +46,7 @@ namespace RelaxedWinner
         {
             if (active)
             {
-                ChatTalk(46000, 46000, @"/mute all");
+                ChatTalk(61000, 61000, @"/mute all");
             }
         }
 

@@ -26,8 +26,15 @@ namespace RelaxedWinner
                 RelaxedWinnerDll.RelaxedWinner.MessageData.GameStart = new List<Information>
                 {
                     new Information { Message = "gl & hf" },
+                    new Information { Message = "GL & HF" },
+                    new Information { Message = "gl && hf" },
+                    new Information { Message = "GL && HF" },
                     new Information { Message = "GL HF" },
-                    new Information { Message = "GL && HF" }
+                    new Information { Message = "gl hf" },
+                    new Information { Message = "gl" },
+                    new Information { Message = "GL" },
+                    new Information { Message = "HF" },
+                    new Information { Message = "hf" },
                 };
                 Save();
             }
