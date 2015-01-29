@@ -19,9 +19,9 @@ namespace RelaxedWinner
 
         internal static bool IsEndMessageTeam { get { return Menu.Item("endmessageteam").GetValue<bool>(); } }
 
-        internal static bool IsStartMessageAll { get { return Menu.Item("startmessageteam").GetValue<bool>(); } }
+        internal static bool IsStartMessageAll { get { return Menu.Item("startmessageall").GetValue<bool>(); } }
 
-        internal static bool IsEndMessageAll { get { return Menu.Item("endmessageteam").GetValue<bool>(); } }
+        internal static bool IsEndMessageAll { get { return Menu.Item("endmessageall").GetValue<bool>(); } }
 
         internal static void CreateMenu()
         {
