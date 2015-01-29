@@ -9,15 +9,15 @@ namespace RelaxedWinner
 {
    public  class UserInterface
     {
-        public static Menu Menu{ get; set; }
+       internal static Menu Menu { get; set; }
 
-        public static bool IsEnabled { get {  return UserInterface.Menu.Item("enabled").GetValue<bool>();}  }
+        internal static bool IsEnabled { get { return Menu.Item("enabled").GetValue<bool>(); } }
 
-        public static bool IsMuteAll { get { return UserInterface.Menu.Item("muteAll").GetValue<bool>(); } }
+        internal static bool IsMuteAll { get { return Menu.Item("muteall").GetValue<bool>(); } }
 
-        public static bool IsStartMessage { get { return UserInterface.Menu.Item("startmessage").GetValue<bool>(); } }
+        internal static bool IsStartMessage { get { return Menu.Item("startmessage").GetValue<bool>(); } }
 
-        public static bool IsEndMessage { get { return UserInterface.Menu.Item("endmessage").GetValue<bool>(); } }
+        internal static bool IsEndMessage { get { return Menu.Item("endmessage").GetValue<bool>(); } }
 
         internal static void CreateMenu()
         {
@@ -26,9 +26,11 @@ namespace RelaxedWinner
             Menu.AddItem(new MenuItem("enabled", "Enable").SetValue(true));
 
             // SubMenu Configuration
-            Menu.AddSubMenu(new Menu("Configuration", "configuration", true));
-            Menu.SubMenu("configuration").AddItem(new MenuItem("StartMessage", "startmessage").SetValue(true));
-            Menu.SubMenu("configuration").AddItem(new MenuItem("EndMessage", "endmessage").SetValue(true));
+            var submenu = Menu.AddSubMenu(new Menu("Configuration", "configuration"));
+
+            submenu.AddItem(new MenuItem("startmessage", "StartMessage").SetValue(true));
+            submenu.AddItem(new MenuItem("endmessage", "EndMessage").SetValue(true));
+            submenu.AddItem(new MenuItem("muteall", "Mute while game").SetValue(true));
             Menu.AddToMainMenu();
         }
 

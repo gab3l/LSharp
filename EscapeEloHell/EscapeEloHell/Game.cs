@@ -13,17 +13,6 @@ namespace RelaxedWinner
        
         public static void Game_OnGameStart(EventArgs args)
         {
-            UserInterface.CreateMenu();
-            Files.CreateFolder();
-            Files.GetData();
-
-            LeagueSharp.Game.PrintChat("Relaxed Winner loaded.");
-            if (!UserInterface.IsEnabled)
-            {
-                LeagueSharp.Game.PrintChat("Relaxed Winner disabled!");
-                return;
-            }
-
             if (RelaxedWinnerDll.RelaxedWinner.RepeatMaximum(
                     20, RelaxedWinnerDll.RelaxedWinner.MessageData.GameStart) && UserInterface.IsStartMessage)
             {
@@ -62,9 +51,9 @@ namespace RelaxedWinner
                 });
         }
 
-        public static void Game_Update(EventArgs args)
+        public static void GameEnd(EventArgs args)
         {
-            if (!UserInterface.IsEnabled)
+            if (UserInterface.Menu == null || !UserInterface.IsEnabled)
 	        {
 	        	 return;
 	        }
@@ -83,7 +72,7 @@ namespace RelaxedWinner
             ChatTalk(
                 2000, 3000,
                 RelaxedWinnerDll.RelaxedWinner.GetMessage(RelaxedWinnerDll.RelaxedWinner.MessageData.GameEnd).Message);
-            LeagueSharp.Game.OnGameUpdate -= Game_Update;
+            LeagueSharp.Game.OnGameUpdate -= GameEnd;
         }
     }
 }
