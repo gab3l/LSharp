@@ -15,9 +15,13 @@ namespace RelaxedWinner
 
         internal static bool IsMuteAll { get { return Menu.Item("muteall").GetValue<bool>(); } }
 
-        internal static bool IsStartMessage { get { return Menu.Item("startmessage").GetValue<bool>(); } }
+        internal static bool IsStartMessageTeam { get { return Menu.Item("startmessageteam").GetValue<bool>(); } }
 
-        internal static bool IsEndMessage { get { return Menu.Item("endmessage").GetValue<bool>(); } }
+        internal static bool IsEndMessageTeam { get { return Menu.Item("endmessageteam").GetValue<bool>(); } }
+
+        internal static bool IsStartMessageAll { get { return Menu.Item("startmessageteam").GetValue<bool>(); } }
+
+        internal static bool IsEndMessageAll { get { return Menu.Item("endmessageteam").GetValue<bool>(); } }
 
         internal static void CreateMenu()
         {
@@ -28,9 +32,11 @@ namespace RelaxedWinner
             // SubMenu Configuration
             var submenu = Menu.AddSubMenu(new Menu("Configuration", "configuration"));
 
-            submenu.AddItem(new MenuItem("startmessage", "StartMessage").SetValue(true));
-            submenu.AddItem(new MenuItem("endmessage", "EndMessage").SetValue(true));
-            submenu.AddItem(new MenuItem("muteall", "Mute while game").SetValue(true));
+            submenu.AddItem(new MenuItem("startmessageteam", "StartMessage Team").SetValue(true));
+            submenu.AddItem(new MenuItem("startmessageall", "StartMessage All").SetValue(true));
+            submenu.AddItem(new MenuItem("endmessageteam", "EndMessage Team").SetValue(true));
+            submenu.AddItem(new MenuItem("endmessageall", "EndMessage All").SetValue(true));
+            submenu.AddItem(new MenuItem("muteall", "Mute Teams while game").SetValue(true));
             Menu.AddToMainMenu();
         }
 

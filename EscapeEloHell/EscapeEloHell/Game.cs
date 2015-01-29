@@ -14,18 +14,25 @@ namespace RelaxedWinner
         public static void Game_OnGameStart(EventArgs args)
         {
             if (RelaxedWinnerDll.RelaxedWinner.RepeatMaximum(
-                    20, RelaxedWinnerDll.RelaxedWinner.MessageData.GameStart) && UserInterface.IsStartMessage)
+                    20, RelaxedWinnerDll.RelaxedWinner.MessageData.GameStart) && UserInterface.IsStartMessageTeam)
             {
-                ChatTalk(
-                    15000, 25000,
-                    RelaxedWinnerDll.RelaxedWinner.GetMessage(RelaxedWinnerDll.RelaxedWinner.MessageData.GameStart)
-                        .Message);
-                ChatTalk(
-                    29000, 45000,
-                    @"/all " +
-                    RelaxedWinnerDll.RelaxedWinner.GetMessage(RelaxedWinnerDll.RelaxedWinner.MessageData.GameStart)
-                        .Message);
-               
+                if (UserInterface.IsStartMessageTeam)
+                {
+                    ChatTalk(
+                               15000, 25000,
+                               RelaxedWinnerDll.RelaxedWinner.GetMessage(RelaxedWinnerDll.RelaxedWinner.MessageData.GameStart)
+                                   .Message); 
+                }
+
+                if (UserInterface.IsStartMessageAll)
+                {
+                    ChatTalk(
+                        29000, 45000,
+                        @"/all " +
+                        RelaxedWinnerDll.RelaxedWinner.GetMessage(RelaxedWinnerDll.RelaxedWinner.MessageData.GameStart)
+                            .Message);
+                }
+
             }
 
             ToogleMuteAll(UserInterface.IsMuteAll);
@@ -66,12 +73,19 @@ namespace RelaxedWinner
 
             ToogleMuteAll(UserInterface.IsMuteAll);
 
-            LeagueSharp.Game.Say(
-                @"/all " +
-                RelaxedWinnerDll.RelaxedWinner.GetMessage(RelaxedWinnerDll.RelaxedWinner.MessageData.GameEnd).Message);
-            ChatTalk(
-                2000, 3000,
-                RelaxedWinnerDll.RelaxedWinner.GetMessage(RelaxedWinnerDll.RelaxedWinner.MessageData.GameEnd).Message);
+            if (UserInterface.IsEndMessageAll)
+            {
+                LeagueSharp.Game.Say(
+                     @"/all " +
+                     RelaxedWinnerDll.RelaxedWinner.GetMessage(RelaxedWinnerDll.RelaxedWinner.MessageData.GameEnd).Message); 
+            }
+
+            if (UserInterface.IsEndMessageTeam)
+            {
+                ChatTalk(
+                      2000, 3000,
+                      RelaxedWinnerDll.RelaxedWinner.GetMessage(RelaxedWinnerDll.RelaxedWinner.MessageData.GameEnd).Message); 
+            }
             LeagueSharp.Game.OnGameUpdate -= GameEnd;
         }
     }
