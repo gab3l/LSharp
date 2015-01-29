@@ -14,7 +14,7 @@ namespace RelaxedWinner
         public static void Game_OnGameStart(EventArgs args)
         {
             if (RelaxedWinnerDll.RelaxedWinner.RepeatMaximum(
-                    20, RelaxedWinnerDll.RelaxedWinner.MessageData.GameStart) && UserInterface.IsStartMessageTeam)
+                    20, RelaxedWinnerDll.RelaxedWinner.MessageData.GameStart))
             {
                 if (UserInterface.IsStartMessageTeam)
                 {
