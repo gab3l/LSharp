@@ -20,7 +20,7 @@ namespace Surrender
         internal static void OnGameUpdate(EventArgs args)
         {
 
-            if (LeagueSharp.Game.ClockTime > 1470 && DateTime.Now > time.AddMinutes(3))
+            if (LeagueSharp.Game.ClockTime > 1470 && DateTime.Now > time.AddMinutes(3) && UserInterface.IsEnabled)
             {
                 LeagueSharp.Game.Say(new Random(2).Next() == 1 ? @"/ff" : @"/surrender");
                 time = DateTime.Now;
