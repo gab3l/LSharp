@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RelaxedWinnerTest", "Escape
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RelaxedWinnerDll", "EscapeEloHellDll\RelaxedWinnerDll.csproj", "{B414456F-98A6-4A31-B27B-259C346434AE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Surrender", "Surrender\Surrender.csproj", "{28DB647C-4E18-4E97-AD17-8C06CCBBA13B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,16 @@ Global
 		{B414456F-98A6-4A31-B27B-259C346434AE}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{B414456F-98A6-4A31-B27B-259C346434AE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{B414456F-98A6-4A31-B27B-259C346434AE}.Release|x86.ActiveCfg = Release|Any CPU
+		{28DB647C-4E18-4E97-AD17-8C06CCBBA13B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28DB647C-4E18-4E97-AD17-8C06CCBBA13B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28DB647C-4E18-4E97-AD17-8C06CCBBA13B}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{28DB647C-4E18-4E97-AD17-8C06CCBBA13B}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{28DB647C-4E18-4E97-AD17-8C06CCBBA13B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{28DB647C-4E18-4E97-AD17-8C06CCBBA13B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28DB647C-4E18-4E97-AD17-8C06CCBBA13B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28DB647C-4E18-4E97-AD17-8C06CCBBA13B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{28DB647C-4E18-4E97-AD17-8C06CCBBA13B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{28DB647C-4E18-4E97-AD17-8C06CCBBA13B}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
