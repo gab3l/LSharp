@@ -13,12 +13,12 @@ namespace Surrender
 
         internal static bool IsAlwaysDeclineSurrender
         {
-            get { return Menu.Item("alwaysdeclinesurrender").GetValue<bool>(); }
+            get { return Menu.Item("declinesurrender").GetValue<bool>(); }
         }
 
         internal static bool IsSmartSurrender
         {
-            get { return Menu.Item("alwaysdeclinesurrender").GetValue<bool>(); }
+            get { return Menu.Item("smartsurrender").GetValue<bool>(); }
         }
 
         internal static int KillDifference
