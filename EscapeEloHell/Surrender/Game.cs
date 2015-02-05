@@ -1,22 +1,19 @@
 ﻿using System;
-using System.Data.SqlTypes;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using LeagueSharp;
-using LeagueSharp.Common;
-using Surrender;
 
 namespace Surrender
 {
     public class Game
     {
+        private static DateTime time;
+
         public static void Game_OnGameStart(EventArgs args)
         {
             LeagueSharp.Game.PrintChat("Surrender loaded.");
         }
-
-        private static DateTime time;
 
         private static void AgreeSurrender()
         {
@@ -27,12 +24,12 @@ namespace Surrender
         private static void ChatWithDelay(int minWaitInMs, int maxWaitInMs, string text)
         {
             Task.Factory.StartNew(
-                 () =>
-                 {
-                     var sleep = new Random().Next(minWaitInMs, maxWaitInMs);
-                     Thread.Sleep(sleep);
-                     LeagueSharp.Game.Say(text);
-                 });
+                () =>
+                {
+                    var sleep = new Random().Next(minWaitInMs, maxWaitInMs);
+                    Thread.Sleep(sleep);
+                    LeagueSharp.Game.Say(text);
+                });
         }
 
         internal static void Game_OnGameNotifyEvent(GameNotifyEventArgs args)
@@ -46,12 +43,11 @@ namespace Surrender
             {
                 if (SurrenderVoteRunning(args))
                 {
-                    DeclineSurrender(); 
+                    DeclineSurrender();
                 }
 
                 return;
             }
-
 
 
             if (LeagueSharp.Game.ClockTime > 1470 && DateTime.Now > time.AddMinutes(3) || SurrenderVoteRunning(args))
@@ -68,27 +64,18 @@ namespace Surrender
                 }
                 else if (SurrenderVoteRunning(args))
                 {
-                    DeclineSurrender(); 
+                    DeclineSurrender();
                 }
             }
         }
 
         private static bool TeamIsLossing(GameNotifyEventArgs args)
         {
-            var enemyStats = 0;
-            var allyStats = 0;
-            foreach (var enemy in ObjectManager.Get<Obj_AI_Hero>().Where(hero => hero.IsEnemy))
-            {
-                enemyStats += enemy.ChampionsKilled;
-            }
-            
-            foreach (var ally in ObjectManager.Get<Obj_AI_Hero>().Where(hero => hero.IsAlly))
-            {
-                enemyStats += ally.ChampionsKilled;
-            }
+            var enemyStats = ObjectManager.Get<Obj_AI_Hero>().Where(hero => hero.IsEnemy).Sum(enemy => enemy.ChampionsKilled);
+            var allyStats = ObjectManager.Get<Obj_AI_Hero>().Where(hero => hero.IsAlly).Sum(ally => ally.ChampionsKilled);
 
             return enemyStats - UserInterface.KillDifference > allyStats;
-       }
+        }
 
         private static void DeclineSurrender()
         {
@@ -97,7 +84,7 @@ namespace Surrender
 
         private static bool SurrenderVoteRunning(GameNotifyEventArgs args)
         {
-            return args.EventId == GameEventId.OnSurrenderVote || args.EventId == GameEventId.OnSurrenderVoteStart; 
+            return args.EventId == GameEventId.OnSurrenderVote || args.EventId == GameEventId.OnSurrenderVoteStart;
         }
     }
 }

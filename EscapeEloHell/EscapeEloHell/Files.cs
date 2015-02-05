@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using RelaxedWinnerDll.Model;
 using LeagueSharp.Common;
+using RelaxedWinnerDll.Model;
 
 namespace RelaxedWinner
 {
@@ -34,7 +34,7 @@ namespace RelaxedWinner
                     new Information { Message = "gl" },
                     new Information { Message = "GL" },
                     new Information { Message = "HF" },
-                    new Information { Message = "hf" },
+                    new Information { Message = "hf" }
                 };
                 Save();
             }

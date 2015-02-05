@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using LeagueSharp.Common;
-using LeagueSharp;
 
 namespace Surrender
 {
-    class Program
+    internal class Program
     {
         private static void RemoveEventHandler(EventArgs args)
         {
@@ -26,9 +21,8 @@ namespace Surrender
         {
             LeagueSharp.Game.OnGameStart += Game.Game_OnGameStart;
             LeagueSharp.Game.OnGameNotifyEvent += Game.Game_OnGameNotifyEvent;
-            
+
             CustomEvents.Game.OnGameEnd += RemoveEventHandler;
         }
-
     }
 }

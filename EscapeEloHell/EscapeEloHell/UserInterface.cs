@@ -1,27 +1,40 @@
 ﻿using LeagueSharp.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RelaxedWinner
 {
-   public  class UserInterface
+    public class UserInterface
     {
-       internal static Menu Menu { get; set; }
+        internal static Menu Menu { get; set; }
 
-        internal static bool IsEnabled { get { return Menu.Item("enabled").GetValue<bool>(); } }
+        internal static bool IsEnabled
+        {
+            get { return Menu.Item("enabled").GetValue<bool>(); }
+        }
 
-        internal static bool IsMuteAll { get { return Menu.Item("muteall").GetValue<bool>(); } }
+        internal static bool IsMuteAll
+        {
+            get { return Menu.Item("muteall").GetValue<bool>(); }
+        }
 
-        internal static bool IsStartMessageTeam { get { return Menu.Item("startmessageteam").GetValue<bool>(); } }
+        internal static bool IsStartMessageTeam
+        {
+            get { return Menu.Item("startmessageteam").GetValue<bool>(); }
+        }
 
-        internal static bool IsEndMessageTeam { get { return Menu.Item("endmessageteam").GetValue<bool>(); } }
+        internal static bool IsEndMessageTeam
+        {
+            get { return Menu.Item("endmessageteam").GetValue<bool>(); }
+        }
 
-        internal static bool IsStartMessageAll { get { return Menu.Item("startmessageall").GetValue<bool>(); } }
+        internal static bool IsStartMessageAll
+        {
+            get { return Menu.Item("startmessageall").GetValue<bool>(); }
+        }
 
-        internal static bool IsEndMessageAll { get { return Menu.Item("endmessageall").GetValue<bool>(); } }
+        internal static bool IsEndMessageAll
+        {
+            get { return Menu.Item("endmessageall").GetValue<bool>(); }
+        }
 
         internal static void CreateMenu()
         {
@@ -39,6 +52,5 @@ namespace RelaxedWinner
             submenu.AddItem(new MenuItem("muteall", "Mute Teams while ingame").SetValue(true));
             Menu.AddToMainMenu();
         }
-
     }
 }

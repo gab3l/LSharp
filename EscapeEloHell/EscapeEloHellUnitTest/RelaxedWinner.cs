@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
-using RelaxedWinnerDll.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using RelaxedWinnerDll.Model;
 
 namespace FriendlyWinnerUnitTest
 {
@@ -66,8 +66,7 @@ namespace FriendlyWinnerUnitTest
                 (Messages) DeserializeFromXml(file, RelaxedWinnerDll.RelaxedWinner.MessageData.GetType());
             Assert.AreEqual(
                 false,
-                RelaxedWinnerDll.RelaxedWinner.RepeatMaximum(
-                    20, RelaxedWinnerDll.RelaxedWinner.MessageData.GameStart));
+                RelaxedWinnerDll.RelaxedWinner.RepeatMaximum(20, RelaxedWinnerDll.RelaxedWinner.MessageData.GameStart));
         }
 
         [TestInitialize]
@@ -84,7 +83,7 @@ namespace FriendlyWinnerUnitTest
                 new Information { Message = "good game all" },
                 new Information { Message = "good game" },
                 new Information { Message = "gg wp" },
-                new Information { Message = "gg wp" },
+                new Information { Message = "gg wp" }
             };
 
             RelaxedWinnerDll.RelaxedWinner.MessageData.GameStart = new List<Information>
@@ -94,7 +93,7 @@ namespace FriendlyWinnerUnitTest
                 new Information { Message = "GL & HF" },
                 new Information { Message = "gl & hf" },
                 new Information { Message = "GL && HF" },
-                new Information { Message = "gl && hf" },
+                new Information { Message = "gl && hf" }
             };
         }
 
@@ -105,8 +104,7 @@ namespace FriendlyWinnerUnitTest
             {
                 list.Add(
                     RelaxedWinnerDll.RelaxedWinner.GetNewMessage(
-                        RelaxedWinnerDll.RelaxedWinner.GetMessage,
-                        RelaxedWinnerDll.RelaxedWinner.MessageData.GameStart));
+                        RelaxedWinnerDll.RelaxedWinner.GetMessage, RelaxedWinnerDll.RelaxedWinner.MessageData.GameStart));
             }
 
             Assert.AreEqual(RelaxedWinnerDll.RelaxedWinner.MessageData.GameStart.Count, list.Count);
@@ -125,8 +123,7 @@ namespace FriendlyWinnerUnitTest
             Assert.IsTrue(
                 !string.IsNullOrEmpty(
                     RelaxedWinnerDll.RelaxedWinner.GetNewMessage(
-                        RelaxedWinnerDll.RelaxedWinner.GetMessage,
-                        RelaxedWinnerDll.RelaxedWinner.MessageData.GameStart)));
+                        RelaxedWinnerDll.RelaxedWinner.GetMessage, RelaxedWinnerDll.RelaxedWinner.MessageData.GameStart)));
         }
     }
 }
