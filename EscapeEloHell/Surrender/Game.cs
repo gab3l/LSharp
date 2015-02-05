@@ -89,6 +89,11 @@ namespace Surrender
 
         internal static void Game_OnGameUpdate(EventArgs args)
         {
+            if (!UserInterface.IsEnabled)
+            {
+                return;
+            }
+
             if (LeagueSharp.Game.ClockTime > 1470 && DateTime.Now > time.AddMinutes(3))
             {
                 if (!UserInterface.IsSmartSurrender)
