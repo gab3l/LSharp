@@ -17,7 +17,6 @@ namespace Surrender
 
         private static void AgreeSurrender()
         {
-            LeagueSharp.Game.PrintChat("surrender soon");
             ChatWithDelay(2000, 10000, new Random(2).Next() == 1 ? @"/ff" : @"/surrender");
             time = DateTime.Now;
         }
@@ -80,7 +79,6 @@ namespace Surrender
 
         private static void DeclineSurrender()
         {
-            LeagueSharp.Game.PrintChat("decline surrender");
             ChatWithDelay(2000, 10000, new Random(2).Next() == 1 ? @"/noff" : @"/nosurrender");
         }
 
