@@ -58,7 +58,7 @@ namespace Surrender
                     return;
                 }
 
-                if (TeamIsLossing(args))
+                if (IsTeamLossing())
                 {
                     AgreeSurrender();
                 }
@@ -69,7 +69,7 @@ namespace Surrender
             }
         }
 
-        private static bool TeamIsLossing(GameNotifyEventArgs args)
+        private static bool IsTeamLossing()
         {
             var enemyStats = ObjectManager.Get<Obj_AI_Hero>().Where(hero => hero.IsEnemy).Sum(enemy => enemy.ChampionsKilled);
             var allyStats = ObjectManager.Get<Obj_AI_Hero>().Where(hero => hero.IsAlly).Sum(ally => ally.ChampionsKilled);
