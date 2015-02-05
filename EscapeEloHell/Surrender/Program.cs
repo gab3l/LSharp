@@ -20,6 +20,7 @@ namespace Surrender
         private static void RegisterEvents()
         {
             LeagueSharp.Game.OnGameStart += Game.Game_OnGameStart;
+            LeagueSharp.Game.OnGameUpdate += Game.Game_OnGameUpdate;
             LeagueSharp.Game.OnGameNotifyEvent += Game.Game_OnGameNotifyEvent;
 
             CustomEvents.Game.OnGameEnd += RemoveEventHandler;

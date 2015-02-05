@@ -86,5 +86,22 @@ namespace Surrender
         {
             return args.EventId == GameEventId.OnSurrenderVote || args.EventId == GameEventId.OnSurrenderVoteStart;
         }
+
+        internal static void Game_OnGameUpdate(EventArgs args)
+        {
+            if (LeagueSharp.Game.ClockTime > 1470 && DateTime.Now > time.AddMinutes(3))
+            {
+                if (!UserInterface.IsSmartSurrender)
+                {
+                    AgreeSurrender();
+                    return;
+                }
+
+                if (IsTeamLossing())
+                {
+                    AgreeSurrender();
+                }
+            }
+        }
     }
 }
