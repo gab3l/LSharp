@@ -71,8 +71,11 @@ namespace Surrender
 
         private static bool IsTeamLossing()
         {
-            var enemyStats = ObjectManager.Get<Obj_AI_Hero>().Where(hero => hero.IsEnemy).Sum(enemy => enemy.ChampionsKilled);
-            var allyStats = ObjectManager.Get<Obj_AI_Hero>().Where(hero => hero.IsAlly).Sum(ally => ally.ChampionsKilled);
+            var enemyStats =
+                ObjectManager.Get<Obj_AI_Hero>().Where(hero => hero.IsEnemy).Sum(enemy => enemy.ChampionsKilled);
+            var allyStats = ObjectManager.Get<Obj_AI_Hero>()
+                .Where(hero => hero.IsAlly)
+                .Sum(ally => ally.ChampionsKilled);
 
             return enemyStats - UserInterface.KillDifference > allyStats;
         }

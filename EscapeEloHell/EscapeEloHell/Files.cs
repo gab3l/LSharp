@@ -12,7 +12,7 @@ namespace RelaxedWinner
 
         internal static void GetData()
         {
-            if (!File.Exists(FileName))
+            if (!File.Exists(Path.Combine(Folder, FileName)))
             {
                 RelaxedWinnerDll.RelaxedWinner.MessageData.GameEnd = new List<Information>
                 {

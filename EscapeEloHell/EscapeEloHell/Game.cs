@@ -35,8 +35,6 @@ namespace RelaxedWinner
             }
 
             ToogleMuteAll(UserInterface.IsMuteAll, false);
-
-            Files.Save();
         }
 
         private static void ToogleMuteAll(bool active, bool endGame)

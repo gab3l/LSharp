@@ -10,7 +10,6 @@ namespace Surrender
             LeagueSharp.Game.OnGameStart -= Game.Game_OnGameStart;
             LeagueSharp.Game.OnGameNotifyEvent -= Game.Game_OnGameNotifyEvent;
             LeagueSharp.Game.OnGameUpdate -= Game.Game_OnGameUpdate;
-
         }
 
         private static void Main(string[] args)
