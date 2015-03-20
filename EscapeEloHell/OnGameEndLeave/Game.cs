@@ -4,6 +4,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using LeagueSharp;
 using System.Diagnostics;
+using System.Runtime.InteropServices;
+using System.Text;
 
 namespace OnGameEndLeave
 {
@@ -13,6 +15,24 @@ namespace OnGameEndLeave
         {
             LeagueSharp.Game.PrintChat("On Game End Leave Loaded.");
         }
+
+        [DllImport("kernel32.dll", CharSet=CharSet.Auto)]
+        public static extern IntPtr GetModuleHandle(string lpModuleName);
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        [PreserveSig]
+        public static extern uint GetModuleFileName
+        (
+            [In]
+            IntPtr hModule,
+
+            [Out] 
+            StringBuilder lpFilename,
+
+            [In]
+            [MarshalAs(UnmanagedType.U4)]
+            int nSize
+         );
 
         internal static void Game_OnGameEnd(EventArgs args)
         {
@@ -33,6 +53,9 @@ namespace OnGameEndLeave
                          var parent = Process.GetProcessById((int)parentId);
                          parent.Kill();
                      }));
+
+                //StringBuilder a = new StringBuilder();
+                //GetModuleFileName(GetModuleHandle(NULL), a, 4 /*"fileName.Capacity"*/);
             }
         }
     }
