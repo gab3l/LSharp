@@ -16,6 +16,7 @@ namespace Surrender
         {
             UserInterface.CreateMenu();
             RegisterEvents();
+            LeagueSharp.Game.PrintChat("Surrender loaded.");
         }
 
         private static void RegisterEvents()

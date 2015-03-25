@@ -9,11 +9,7 @@ namespace Surrender
     public class Game
     {
         private static DateTime time;
-
-        public static void Game_OnGameStart(EventArgs args)
-        {
-            LeagueSharp.Game.PrintChat("Surrender loaded.");
-        }
+        public static void Game_OnGameStart(EventArgs args) {}
 
         private static void AgreeSurrender()
         {
@@ -43,6 +39,8 @@ namespace Surrender
             {
                 if (SurrenderVoteRunning(args))
                 {
+                    LeagueSharp.Game.PrintChat("DeclineSurrender");
+
                     DeclineSurrender();
                 }
 
@@ -50,16 +48,19 @@ namespace Surrender
             }
 
 
-            if (LeagueSharp.Game.ClockTime > 1470 && DateTime.Now > time.AddMinutes(3) || SurrenderVoteRunning(args))
+            if (LeagueSharp.Game.ClockTime > 1470 && DateTime.Now > time.AddMinutes(3) /* todo testen! */||
+                SurrenderVoteRunning(args))
             {
                 if (!UserInterface.IsSmartSurrender)
                 {
+                    // tested it's working
                     AgreeSurrender();
                     return;
                 }
 
                 if (IsTeamLossing())
                 {
+                    // tested it's working
                     AgreeSurrender();
                 }
                 else if (SurrenderVoteRunning(args))
@@ -82,11 +83,19 @@ namespace Surrender
 
         private static void DeclineSurrender()
         {
-            ChatWithDelay(2000, 10000, new Random(2).Next() == 1 ? @"/noff" : @"/nosurrender");
+            ChatWithDelay(2000, 3000, new Random(2).Next() == 1 ? @"/noff" : @"/nosurrender");
         }
 
         private static bool SurrenderVoteRunning(GameNotifyEventArgs args)
         {
+            if (args.EventId == GameEventId.OnSurrenderVote)
+            {
+                LeagueSharp.Game.PrintChat("args.EventId == GameEventId.OnSurrenderVote");
+            }
+            else if (args.EventId == GameEventId.OnSurrenderVoteStart)
+            {
+                LeagueSharp.Game.PrintChat("args.EventId == GameEventId.OnSurrenderVoteStart");
+            }
             return args.EventId == GameEventId.OnSurrenderVote || args.EventId == GameEventId.OnSurrenderVoteStart;
         }
 
