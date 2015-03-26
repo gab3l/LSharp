@@ -8,8 +8,7 @@ namespace Surrender
         private static void RemoveEventHandler(EventArgs args)
         {
             LeagueSharp.Game.OnStart -= Game.Game_OnStart;
-            LeagueSharp.Game.OnGameNotifyEvent -= Game.Game_OnGameNotifyEvent;
-            LeagueSharp.Game.OnUpdate -= Game.Game_OnUpdate;
+            LeagueSharp.Game.OnUpdate -= Game.GameOnUpdate;
         }
 
         private static void Main(string[] args)
@@ -22,10 +21,8 @@ namespace Surrender
         private static void RegisterEvents()
         {
             LeagueSharp.Game.OnStart += Game.Game_OnStart;
-            LeagueSharp.Game.OnUpdate += Game.Game_OnUpdate;
-            LeagueSharp.Game.OnGameNotifyEvent += Game.Game_OnGameNotifyEvent;
-
-            CustomEvents.Game.OnGameEnd += RemoveEventHandler;
+            LeagueSharp.Game.OnUpdate += Game.GameOnUpdate;
+            LeagueSharp.Game.OnEnd += RemoveEventHandler;
         }
     }
 }

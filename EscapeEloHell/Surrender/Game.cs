@@ -11,7 +11,7 @@ namespace Surrender
         private static DateTime time;
         public static void Game_OnStart(EventArgs args) {}
 
-        private static void AgreeSurrender()
+        public static void AgreeSurrender()
         {
             ChatWithDelay(2000, 10000, new Random(2).Next() == 1 ? @"/ff" : @"/surrender");
             time = DateTime.Now;
@@ -28,54 +28,12 @@ namespace Surrender
                 });
         }
 
-        internal static void Game_OnGameNotifyEvent(GameNotifyEventArgs args)
-        {
-            if (!UserInterface.IsEnabled)
-            {
-                return;
-            }
-
-            if (UserInterface.IsAlwaysDeclineSurrender)
-            {
-                if (SurrenderVoteRunning(args))
-                {
-                    LeagueSharp.Game.PrintChat("DeclineSurrender");
-
-                    DeclineSurrender();
-                }
-
-                return;
-            }
-
-
-            if (LeagueSharp.Game.ClockTime > 1470 && DateTime.Now > time.AddMinutes(3) /* todo testen! */||
-                SurrenderVoteRunning(args))
-            {
-                if (!UserInterface.IsSmartSurrender)
-                {
-                    // tested it's working
-                    AgreeSurrender();
-                    return;
-                }
-
-                if (IsTeamLossing())
-                {
-                    // tested it's working
-                    AgreeSurrender();
-                }
-                else if (SurrenderVoteRunning(args))
-                {
-                    DeclineSurrender();
-                }
-            }
-        }
-
         private static bool IsTeamLossing()
         {
             var enemyStats =
-                ObjectManager.Get<Obj_AI_Hero>().Where(hero => hero.IsEnemy).Sum(enemy => enemy.ChampionsKilled);
+                ObjectManager.Get<Obj_AI_Hero>().Where(x => x.IsEnemy).Sum(enemy => enemy.ChampionsKilled);
             var allyStats = ObjectManager.Get<Obj_AI_Hero>()
-                .Where(hero => hero.IsAlly)
+                .Where(x => x.IsAlly)
                 .Sum(ally => ally.ChampionsKilled);
 
             return enemyStats - UserInterface.KillDifference > allyStats;
@@ -99,25 +57,39 @@ namespace Surrender
             return args.EventId == GameEventId.OnSurrenderVote || args.EventId == GameEventId.OnSurrenderVoteStart;
         }
 
-        internal static void Game_OnUpdate(EventArgs args)
+        internal static void GameOnUpdate(EventArgs args)
         {
             if (!UserInterface.IsEnabled)
             {
                 return;
             }
 
+            // WTF ist das bitte
             if (LeagueSharp.Game.ClockTime > 1470 && DateTime.Now > time.AddMinutes(3))
             {
-                if (!UserInterface.IsSmartSurrender)
+                if (UserInterface.IsAlwaysDeclineSurrender)
                 {
-                    AgreeSurrender();
+                    DeclineSurrender();
+                    time = DateTime.Now;
                     return;
                 }
 
-                if (IsTeamLossing())
+                if (UserInterface.IsSmartSurrender)
                 {
-                    AgreeSurrender();
+                    if (IsTeamLossing())
+                    {
+                        AgreeSurrender();
+                        time = DateTime.Now;
+                        return;
+                    }
                 }
+            }
+
+            if (LeagueSharp.Game.ClockTime > 1470 * 3 /* 60 min */&& DateTime.Now > time.AddMinutes(3) &&
+                UserInterface.IsSurrenderAfterOneHour)
+            {
+                time = DateTime.Now;
+                AgreeSurrender();
             }
         }
     }
