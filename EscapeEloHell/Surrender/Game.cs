@@ -9,7 +9,7 @@ namespace Surrender
     public class Game
     {
         private static DateTime time;
-        public static void Game_OnGameStart(EventArgs args) {}
+        public static void Game_OnStart(EventArgs args) {}
 
         private static void AgreeSurrender()
         {
@@ -99,7 +99,7 @@ namespace Surrender
             return args.EventId == GameEventId.OnSurrenderVote || args.EventId == GameEventId.OnSurrenderVoteStart;
         }
 
-        internal static void Game_OnGameUpdate(EventArgs args)
+        internal static void Game_OnUpdate(EventArgs args)
         {
             if (!UserInterface.IsEnabled)
             {

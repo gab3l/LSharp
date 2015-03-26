@@ -1,5 +1,6 @@
 ﻿using System;
 using LeagueSharp.Common;
+using RelaxedWinnerDll.Model;
 
 namespace RelaxedWinner
 {
@@ -7,13 +8,16 @@ namespace RelaxedWinner
     {
         private static void RemoveEventHandler(EventArgs args)
         {
-            LeagueSharp.Game.OnGameStart -= Game.Game_OnGameStart;
-            LeagueSharp.Game.OnGameUpdate -= Game.GameEnd;
+            LeagueSharp.Game.OnStart -= Game.Game_OnStart;
+            LeagueSharp.Game.OnUpdate -= Game.GameEnd;
         }
 
         private static void Main(string[] args)
         {
             Initialize();
+
+            LeagueSharp.Game.PrintChat("Relaxed Winner loaded.");
+            LeagueSharp.Game.PrintChat("Change messages from RelaxedWinner in " + Files.Folder + @"\" + Files.FileName);
 
             if (!UserInterface.IsEnabled)
             {
@@ -21,8 +25,8 @@ namespace RelaxedWinner
                 return;
             }
 
-            LeagueSharp.Game.OnGameStart += Game.Game_OnGameStart;
-            LeagueSharp.Game.OnGameUpdate += Game.GameEnd;
+            LeagueSharp.Game.OnStart += Game.Game_OnStart;
+            LeagueSharp.Game.OnUpdate += Game.GameEnd;
             CustomEvents.Game.OnGameEnd += RemoveEventHandler;
         }
 

@@ -10,10 +10,8 @@ namespace RelaxedWinner
     {
         private static readonly Random Random = new Random(20000);
 
-        public static void Game_OnGameStart(EventArgs args)
+        public static void Game_OnStart(EventArgs args)
         {
-            LeagueSharp.Game.PrintChat("Relaxed Winner loaded.");
-
             if (RelaxedWinnerDll.RelaxedWinner.RepeatMaximum(20, RelaxedWinnerDll.RelaxedWinner.MessageData.GameStart))
             {
                 if (UserInterface.IsStartMessageTeam)
@@ -54,7 +52,7 @@ namespace RelaxedWinner
             }
         }
 
-        private static void ChatTalk(int minDelaxInMs, int maxDelayInMs, string chatMessage)
+        public static void ChatTalk(int minDelaxInMs, int maxDelayInMs, string chatMessage)
         {
             Task.Factory.StartNew(
                 () =>
@@ -95,7 +93,7 @@ namespace RelaxedWinner
                         .Message);
             }
 
-            LeagueSharp.Game.OnGameUpdate -= GameEnd;
+            LeagueSharp.Game.OnUpdate -= GameEnd;
         }
     }
 }

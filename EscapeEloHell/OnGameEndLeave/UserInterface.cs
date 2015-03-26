@@ -15,7 +15,7 @@ namespace OnGameEndLeave
         {
             Menu = new Menu("On Game End Leave", "ongameendleave", true);
             Menu.AddItem(new MenuItem("enabled", "Enable").SetValue(true));
-      
+
             Menu.AddToMainMenu();
         }
     }
