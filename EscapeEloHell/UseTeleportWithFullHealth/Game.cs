@@ -8,12 +8,6 @@ namespace UseTeleportWithFullHealth
     public class Game
     {
         private static Spell teleportingSpell;
-        public static object Lock = new object();
-
-        public static void OnStart(EventArgs args)
-        {
-            LeagueSharp.Game.PrintChat("Smart teleport loaded.");
-        }
 
         internal static void OnUpdate(EventArgs args)
         {

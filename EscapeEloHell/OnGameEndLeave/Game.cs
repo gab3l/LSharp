@@ -11,11 +11,6 @@ namespace OnGameEndLeave
 {
     public class Game
     {
-        public static void Game_OnStart(EventArgs args)
-        {
-            LeagueSharp.Game.PrintChat("On Game End Leave Loaded.");
-        }
-
         [DllImport("kernel32.dll", SetLastError = true)]
         [PreserveSig]
         public static extern uint GetModuleFileName([In] IntPtr hModule,

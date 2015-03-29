@@ -7,7 +7,6 @@ namespace OnGameEndLeave
     {
         private static void RemoveEventHandler(EventArgs args)
         {
-            LeagueSharp.Game.OnStart -= Game.Game_OnStart;
             LeagueSharp.Game.OnUpdate -= Game.OnUpdate;
             CustomEvents.Game.OnGameEnd -= RemoveEventHandler;
         }
@@ -16,11 +15,11 @@ namespace OnGameEndLeave
         {
             UserInterface.CreateMenu();
             RegisterEvents();
+            LeagueSharp.Game.PrintChat("On Game End Leave loaded.");
         }
 
         private static void RegisterEvents()
         {
-            LeagueSharp.Game.OnStart += Game.Game_OnStart;
             LeagueSharp.Game.OnUpdate += Game.OnUpdate;
             CustomEvents.Game.OnGameEnd += RemoveEventHandler;
         }
