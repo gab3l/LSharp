@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Linq;
 using System.Management;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using LeagueSharp;
 
 namespace OnGameEndLeave
 {
@@ -28,22 +30,30 @@ namespace OnGameEndLeave
         {
             if (UserInterface.IsEnabled)
             {
+                var nexus = ObjectManager.Get<Obj_HQ>().FirstOrDefault(n => n.Health < 1);
+                if (nexus == null)
+                {
+                    return;
+                }
+                
                 Task.Factory.StartNew(
                     () =>
                     {
                         Thread.Sleep(2000);
                         var myId = Process.GetCurrentProcess().Id;
-
-                        // Happy SQL-Injection
-                        var query = string.Format(
-                            "SELECT ParentProcessId FROM Win32_Process WHERE ProcessId = {0}", myId);
-                        var search = new ManagementObjectSearcher("root\\CIMV2", query);
-                        var results = search.Get().GetEnumerator();
-                        results.MoveNext();
-                        var queryObj = results.Current;
-                        var parentId = (uint) queryObj["ParentProcessId"];
-                        var parent = Process.GetProcessById((int) parentId);
-                        parent.Kill();
+                        var process = Process.GetProcessById((int)myId);
+                        process.Kill();
+                        
+                        //// Happy SQL-Injection
+                        //var query = string.Format(
+                        //    "SELECT ParentProcessId FROM Win32_Process WHERE ProcessId = {0}", myId);
+                        //var search = new ManagementObjectSearcher("root\\CIMV2", query);
+                        //var results = search.Get().GetEnumerator();
+                        //results.MoveNext();
+                        //var queryObj = results.Current;
+                        //var parentId = (uint) queryObj["ParentProcessId"];
+                        //var parent = Process.GetProcessById((int) parentId);
+                        //parent.Kill();
                     });
 
                 //StringBuilder a = new StringBuilder();

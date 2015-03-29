@@ -19,38 +19,30 @@ namespace UseTeleportWithFullHealth
 
         internal static void OnUpdate(EventArgs args)
         {
-            if (!UserInterface.IsEnabled || ObjectManager.Player.GetSpellSlot("SummonerTeleport") == SpellSlot.Unknown
-                /* || not near home base */)
+            if (!UserInterface.IsEnabled || ObjectManager.Player.GetSpellSlot("SummonerTeleport") == SpellSlot.Unknown ||
+                !UserInterface.IsCastOnReadyPressed)
             {
                 return;
             }
 
-            if (Monitor.TryEnter(Lock))
-            {
-                try
-                {
-                    var time = DateTime.Now.AddSeconds(30);
-                    var hero = ObjectManager.Player;
-                    teleportingSpell = new Spell(ObjectManager.Player.GetSpellSlot("SummonerTeleport"));
-                    while (UserInterface.IsCastOnReadyPressed)
-                    {
-                        // should teleport now?
-                        if (Teleport.IsStart(hero.HealthPercent, hero.ManaPercent) && teleportingSpell.IsReady())
-                        {
-                            // start 
-                            teleportingSpell.Cast(
-                                new Vector2(LeagueSharp.Game.CursorPos.X, LeagueSharp.Game.CursorPos.Y));
-                            break;
-                        }
 
-                        Thread.Sleep(1);
-                    }
-                }
-                finally
-                {
-                    Monitor.Exit(Lock);
-                }
+
+            var time = DateTime.Now.AddSeconds(30);
+            var hero = ObjectManager.Player;
+            teleportingSpell = new Spell(ObjectManager.Player.GetSpellSlot("SummonerTeleport"));
+            //while (UserInterface.IsCastOnReadyPressed)
+            //{
+            // should teleport now?
+            if (Teleport.IsStart(hero.HealthPercent, hero.ManaPercent) && teleportingSpell.IsReady())
+            {
+                // start 
+                LeagueSharp.Game.CursorPos.
+                teleportingSpell.Cast(); /*new Vector2(LeagueSharp.Game.CursorPos.X, LeagueSharp.Game.CursorPos.Y) */
+                //LeagueSharp.Game.PrintChat("teleporting");
+                //break;
             }
+            //}
+
         }
     }
 }
