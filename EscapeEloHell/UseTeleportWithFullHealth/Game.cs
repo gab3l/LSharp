@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Threading;
 using LeagueSharp;
 using LeagueSharp.Common;
-using SharpDX;
 using UseTeleportWithFullHealthDll;
 
 namespace UseTeleportWithFullHealth
@@ -25,24 +23,16 @@ namespace UseTeleportWithFullHealth
                 return;
             }
 
-
-
-            var time = DateTime.Now.AddSeconds(30);
             var hero = ObjectManager.Player;
             teleportingSpell = new Spell(ObjectManager.Player.GetSpellSlot("SummonerTeleport"));
-            //while (UserInterface.IsCastOnReadyPressed)
-            //{
-            // should teleport now?
             if (Teleport.IsStart(hero.HealthPercent, hero.ManaPercent) && teleportingSpell.IsReady())
             {
                 // start 
-                LeagueSharp.Game.CursorPos.
-                teleportingSpell.Cast(); /*new Vector2(LeagueSharp.Game.CursorPos.X, LeagueSharp.Game.CursorPos.Y) */
+                //LeagueSharp.Game.CursorPos.teleportingSpell.Cast();
+                    /*new Vector2(LeagueSharp.Game.CursorPos.X, LeagueSharp.Game.CursorPos.Y) */
                 //LeagueSharp.Game.PrintChat("teleporting");
                 //break;
             }
-            //}
-
         }
     }
 }

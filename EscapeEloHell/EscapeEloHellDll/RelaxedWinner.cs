@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Reflection;
 using RelaxedWinnerDll.Model;
 
 namespace RelaxedWinnerDll
@@ -13,7 +11,7 @@ namespace RelaxedWinnerDll
         {
             MessageData = new Messages();
         }
- 
+
         public static Messages MessageData { get; set; }
 
         public static bool RepeatMaximum(int minimumWaitTimeInMinutes, List<Information> messages)

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Reflection;
-using LeagueSharp.Common;
 using RelaxedWinnerDll.Model;
 
 namespace RelaxedWinner
@@ -10,8 +8,10 @@ namespace RelaxedWinner
     public class Files
     {
         public const string FileName = "Messages.xml";
-        public static string Folder = Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + @"\RelaxedWinner";
-       
+
+        public static string Folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) +
+                                      @"\RelaxedWinner";
+
         internal static void GetData()
         {
             if (!File.Exists(Path.Combine(Folder, FileName)))
@@ -45,21 +45,21 @@ namespace RelaxedWinner
                 RelaxedWinnerDll.RelaxedWinner.MessageData =
                     (Messages)
                         SerializeXml.DeserializeFromXml(
-                            Path.Combine(Files.Folder, FileName), RelaxedWinnerDll.RelaxedWinner.MessageData.GetType());
+                            Path.Combine(Folder, FileName), RelaxedWinnerDll.RelaxedWinner.MessageData.GetType());
             }
         }
 
         internal static void CreateFolder()
         {
-            if (!Directory.Exists(Files.Folder))
+            if (!Directory.Exists(Folder))
             {
-                Directory.CreateDirectory(Files.Folder);
+                Directory.CreateDirectory(Folder);
             }
         }
 
         internal static void Save()
         {
-            SerializeXml.SerializeToXml(RelaxedWinnerDll.RelaxedWinner.MessageData, Path.Combine(Files.Folder, FileName));
+            SerializeXml.SerializeToXml(RelaxedWinnerDll.RelaxedWinner.MessageData, Path.Combine(Folder, FileName));
         }
     }
 }

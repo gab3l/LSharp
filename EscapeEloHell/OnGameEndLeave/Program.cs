@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Management;
 using LeagueSharp.Common;
 
 namespace OnGameEndLeave
@@ -26,6 +24,5 @@ namespace OnGameEndLeave
             LeagueSharp.Game.OnUpdate += Game.OnUpdate;
             CustomEvents.Game.OnGameEnd += RemoveEventHandler;
         }
-
     }
 }

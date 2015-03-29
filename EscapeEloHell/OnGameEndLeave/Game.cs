@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Linq;
-using System.Management;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
@@ -32,15 +31,14 @@ namespace OnGameEndLeave
                 {
                     return;
                 }
-                
+
                 Task.Factory.StartNew(
                     () =>
                     {
                         Thread.Sleep(10000);
                         var myId = Process.GetCurrentProcess().Id;
-                        var process = Process.GetProcessById((int)myId);
+                        var process = Process.GetProcessById(myId);
                         process.Kill();
-                    
                     });
             }
         }

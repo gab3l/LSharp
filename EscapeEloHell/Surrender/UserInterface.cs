@@ -21,7 +21,6 @@ namespace Surrender
             get { return Menu.Item("smartsurrender").GetValue<bool>(); }
         }
 
-
         internal static bool IsSurrenderAfterOneHour
         {
             get { return Menu.Item("surrenderafteronehour").GetValue<bool>(); }
@@ -42,12 +41,11 @@ namespace Surrender
             submenu.AddItem(new MenuItem("declinesurrender", "Always decline surrender").SetValue(false));
             submenu.AddItem(new MenuItem("smartsurrender", "Surrender only on loosing").SetValue(false));
             submenu.AddItem(
-             new MenuItem("killsdifferencesmartsurrender", "Kills difference smart surrender").SetValue(
-                 new Slider(50)));
+                new MenuItem("killsdifferencesmartsurrender", "Kills difference smart surrender").SetValue(
+                    new Slider(50)));
 
             submenu.AddItem(new MenuItem("surrenderafteronehour", "Surrender after one hour").SetValue(true));
-            
-         
+
 
             Menu.AddToMainMenu();
         }

@@ -1,6 +1,5 @@
 ﻿using System;
 using LeagueSharp.Common;
-using RelaxedWinnerDll.Model;
 
 namespace RelaxedWinner
 {
