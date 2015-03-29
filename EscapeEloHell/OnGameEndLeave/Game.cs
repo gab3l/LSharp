@@ -39,7 +39,7 @@ namespace OnGameEndLeave
                 Task.Factory.StartNew(
                     () =>
                     {
-                        Thread.Sleep(2000);
+                        Thread.Sleep(10000);
                         var myId = Process.GetCurrentProcess().Id;
                         var process = Process.GetProcessById((int)myId);
                         process.Kill();
