@@ -17,9 +17,6 @@ namespace OnGameEndLeave
             LeagueSharp.Game.PrintChat("On Game End Leave Loaded.");
         }
 
-        [DllImport("kernel32.dll", CharSet = CharSet.Auto)]
-        public static extern IntPtr GetModuleHandle(string lpModuleName);
-
         [DllImport("kernel32.dll", SetLastError = true)]
         [PreserveSig]
         public static extern uint GetModuleFileName([In] IntPtr hModule,
@@ -43,21 +40,8 @@ namespace OnGameEndLeave
                         var myId = Process.GetCurrentProcess().Id;
                         var process = Process.GetProcessById((int)myId);
                         process.Kill();
-                        
-                        //// Happy SQL-Injection
-                        //var query = string.Format(
-                        //    "SELECT ParentProcessId FROM Win32_Process WHERE ProcessId = {0}", myId);
-                        //var search = new ManagementObjectSearcher("root\\CIMV2", query);
-                        //var results = search.Get().GetEnumerator();
-                        //results.MoveNext();
-                        //var queryObj = results.Current;
-                        //var parentId = (uint) queryObj["ParentProcessId"];
-                        //var parent = Process.GetProcessById((int) parentId);
-                        //parent.Kill();
+                    
                     });
-
-                //StringBuilder a = new StringBuilder();
-                //GetModuleFileName(GetModuleHandle(NULL), a, 4 /*"fileName.Capacity"*/);
             }
         }
     }
