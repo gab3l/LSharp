@@ -23,7 +23,7 @@ namespace OnGameEndLeave
             [Out] StringBuilder lpFilename,
             [In] [MarshalAs(UnmanagedType.U4)] int nSize);
 
-        internal static void Game_OnGameEnd(EventArgs args)
+        internal static void OnUpdate(EventArgs args)
         {
             if (UserInterface.IsEnabled)
             {

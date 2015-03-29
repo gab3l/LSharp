@@ -10,7 +10,7 @@ namespace OnGameEndLeave
         private static void RemoveEventHandler(EventArgs args)
         {
             LeagueSharp.Game.OnStart -= Game.Game_OnStart;
-            CustomEvents.Game.OnGameEnd -= Game.Game_OnGameEnd;
+            LeagueSharp.Game.OnUpdate -= Game.OnUpdate;
             CustomEvents.Game.OnGameEnd -= RemoveEventHandler;
         }
 
@@ -23,7 +23,7 @@ namespace OnGameEndLeave
         private static void RegisterEvents()
         {
             LeagueSharp.Game.OnStart += Game.Game_OnStart;
-            LeagueSharp.Game.OnUpdate += Game.Game_OnGameEnd;
+            LeagueSharp.Game.OnUpdate += Game.OnUpdate;
             CustomEvents.Game.OnGameEnd += RemoveEventHandler;
         }
 
