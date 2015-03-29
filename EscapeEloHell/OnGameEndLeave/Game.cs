@@ -22,19 +22,37 @@ namespace OnGameEndLeave
             if (UserInterface.IsEnabled)
             {
                 var nexus = ObjectManager.Get<Obj_HQ>().FirstOrDefault(n => n.Health < 1);
-                if (nexus == null)
+                if (nexus != null)
                 {
-                    return;
-                }
+                    LeagueSharp.Game.PrintChat("Killing lol in 10sec...");
+                    KillLoLClient();
+                } 
+            }
+        }
 
-                Task.Factory.StartNew(
-                    () =>
+        public static void KillLoLClient()
+        {
+            Task.Factory.StartNew(
+                () =>
+                {
+                    try
                     {
                         Thread.Sleep(10000);
                         var myId = Process.GetCurrentProcess().Id;
                         var process = Process.GetProcessById(myId);
                         process.Kill();
-                    });
+                    }
+                    catch 
+                    {
+                    }
+                });
+        }
+
+        internal static void OnNotify(GameNotifyEventArgs args)
+        {
+            if (args.EventId == GameEventId.OnSurrenderAgreed)
+            {
+                KillLoLClient();
             }
         }
     }
