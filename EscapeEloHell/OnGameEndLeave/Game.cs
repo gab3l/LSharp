@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using LeagueSharp;
+using LeagueSharp.Common;
 
 namespace OnGameEndLeave
 {
@@ -37,7 +38,7 @@ namespace OnGameEndLeave
                 {
                     try
                     {
-                        Thread.Sleep(10000);
+                        Thread.Sleep(UserInterface.WaitTimeInSeconds * 1000);
                         var myId = Process.GetCurrentProcess().Id;
                         var process = Process.GetProcessById(myId);
                         process.Kill();
