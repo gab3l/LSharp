@@ -25,7 +25,7 @@ namespace OnGameEndLeave
                 var nexus = ObjectManager.Get<Obj_HQ>().FirstOrDefault(n => n.Health < 1);
                 if (nexus != null)
                 {
-                    LeagueSharp.Game.PrintChat("Killing lol in 10sec...");
+                    LeagueSharp.Game.PrintChat(String.Format("Killing lol in {0} sec...", UserInterface.WaitTimeInSeconds));
                     KillLoLClient();
                 } 
             }
@@ -55,6 +55,11 @@ namespace OnGameEndLeave
             {
                 KillLoLClient();
             }
+        }
+
+        internal static void OnEnd(GameEndEventArgs args)
+        {
+           LeagueSharp.Game.PrintChat("GameEnded Event");
         }
     }
 }
