@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Runtime.InteropServices;
+using LeagueSharp;
 using LeagueSharp.Common;
 
 namespace OnGameEndLeave
@@ -8,7 +10,6 @@ namespace OnGameEndLeave
         private static void RemoveEventHandler(EventArgs args)
         {
             LeagueSharp.Game.OnUpdate -= Game.OnUpdate;
-            LeagueSharp.Game.OnNotify -= Game.OnNotify;
             CustomEvents.Game.OnGameEnd -= RemoveEventHandler;
         }
 
@@ -22,9 +23,7 @@ namespace OnGameEndLeave
         private static void RegisterEvents()
         {
             LeagueSharp.Game.OnUpdate += Game.OnUpdate;
-            LeagueSharp.Game.OnNotify += Game.OnNotify;
-
-                CustomEvents.Game.OnGameEnd += RemoveEventHandler;
+            CustomEvents.Game.OnGameEnd += RemoveEventHandler;
         }
     }
 }

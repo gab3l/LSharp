@@ -26,40 +26,20 @@ namespace OnGameEndLeave
                 if (nexus != null)
                 {
                     LeagueSharp.Game.PrintChat(String.Format("Killing lol in {0} sec...", UserInterface.WaitTimeInSeconds));
-                    KillLoLClient();
+                    Thread.Sleep(UserInterface.WaitTimeInSeconds * 1000);
+                    var myId = Process.GetCurrentProcess().Id;
+                    var process = Process.GetProcessById(myId);
+                    process.Kill();
                 } 
             }
         }
 
-        public static void KillLoLClient()
-        {
-            Task.Factory.StartNew(
-                () =>
-                {
-                    try
-                    {
-                        Thread.Sleep(UserInterface.WaitTimeInSeconds * 1000);
-                        var myId = Process.GetCurrentProcess().Id;
-                        var process = Process.GetProcessById(myId);
-                        process.Kill();
-                    }
-                    catch 
-                    {
-                    }
-                });
-        }
-
         internal static void OnNotify(GameNotifyEventArgs args)
         {
+            //Console.WriteLine("Buffs: {0}", string.Join(" | ", target.Buffs.Where(b => b.Caster.NetworkId == zilean.NetworkId).Select(b => b.DisplayName)));
             if (args.EventId == GameEventId.OnSurrenderAgreed)
             {
-                KillLoLClient();
             }
-        }
-
-        internal static void OnEnd(GameEndEventArgs args)
-        {
-           LeagueSharp.Game.PrintChat("GameEnded Event");
         }
     }
 }
