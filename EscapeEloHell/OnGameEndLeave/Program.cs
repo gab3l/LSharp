@@ -23,6 +23,7 @@ namespace OnGameEndLeave
         private static void RegisterEvents()
         {
             LeagueSharp.Game.OnUpdate += Game.OnUpdate;
+            LeagueSharp.Game.OnNotify += Game.OnNotify;
             CustomEvents.Game.OnGameEnd += RemoveEventHandler;
         }
     }

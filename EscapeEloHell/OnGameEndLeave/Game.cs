@@ -23,22 +23,38 @@ namespace OnGameEndLeave
             if (UserInterface.IsEnabled)
             {
                 var nexus = ObjectManager.Get<Obj_HQ>().FirstOrDefault(n => n.Health < 1);
-                if (nexus != null)
+                if (nexus == null)
                 {
-                    LeagueSharp.Game.PrintChat(String.Format("Killing lol in {0} sec...", UserInterface.WaitTimeInSeconds));
-                    Thread.Sleep(UserInterface.WaitTimeInSeconds * 1000);
-                    var myId = Process.GetCurrentProcess().Id;
-                    var process = Process.GetProcessById(myId);
-                    process.Kill();
-                } 
+                    return;
+                }
+
+                var process = Process.GetProcessById(Process.GetCurrentProcess().Id);
+                Thread.Sleep(20000);
+                process.Kill();
+                Task.Factory.StartNew(
+                    () =>
+                    {
+                        Console.WriteLine("Thread killing it in 10sec - should be dead already");
+                        Thread.Sleep(20000);
+                        Process.GetProcessById(Process.GetCurrentProcess().Id).Kill();
+                    });
             }
         }
 
         internal static void OnNotify(GameNotifyEventArgs args)
         {
-            //Console.WriteLine("Buffs: {0}", string.Join(" | ", target.Buffs.Where(b => b.Caster.NetworkId == zilean.NetworkId).Select(b => b.DisplayName)));
-            if (args.EventId == GameEventId.OnSurrenderAgreed)
+            if (string.Equals(args.EventId.ToString(),"OnHQKill"))
             {
+                var process = Process.GetProcessById(Process.GetCurrentProcess().Id);
+                Thread.Sleep(20000);
+                process.Kill();
+                Task.Factory.StartNew(
+                    () =>
+                    {
+                        Console.WriteLine("Thread killing it in 10sec - should be dead already");
+                        Thread.Sleep(20000);
+                        Process.GetProcessById(Process.GetCurrentProcess().Id).Kill();
+                    });
             }
         }
     }

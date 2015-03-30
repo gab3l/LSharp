@@ -62,15 +62,13 @@ namespace RelaxedWinner
                 });
         }
 
-        public static void OnUpdate(EventArgs args)
+        internal static void OnNotify(GameNotifyEventArgs args)
         {
-            if (UserInterface.Menu == null || !UserInterface.IsEnabled)
+            if (!string.Equals(args.EventId.ToString(), "OnHQKill"))
             {
                 return;
             }
-
-            var nexus = ObjectManager.Get<Obj_HQ>().FirstOrDefault(n => n.Health < 1);
-            if (nexus == null)
+            if (UserInterface.Menu == null || !UserInterface.IsEnabled)
             {
                 return;
             }
