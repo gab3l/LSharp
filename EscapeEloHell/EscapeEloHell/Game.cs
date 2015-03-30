@@ -62,7 +62,7 @@ namespace RelaxedWinner
                 });
         }
 
-        public static void GameEnd(EventArgs args)
+        public static void OnUpdate(EventArgs args)
         {
             if (UserInterface.Menu == null || !UserInterface.IsEnabled)
             {
@@ -92,8 +92,6 @@ namespace RelaxedWinner
                     RelaxedWinnerDll.RelaxedWinner.GetMessage(RelaxedWinnerDll.RelaxedWinner.MessageData.GameEnd)
                         .Message);
             }
-
-            LeagueSharp.Game.OnUpdate -= GameEnd;
         }
     }
 }

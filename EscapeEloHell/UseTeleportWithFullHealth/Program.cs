@@ -7,7 +7,6 @@ namespace UseTeleportWithFullHealth
     {
         private static void RemoveEventHandler(EventArgs args)
         {
-            LeagueSharp.Game.OnStart -= Game.OnStart;
             LeagueSharp.Game.OnUpdate -= Game.OnUpdate;
         }
 
@@ -20,7 +19,6 @@ namespace UseTeleportWithFullHealth
 
         private static void RegisterEvents()
         {
-            LeagueSharp.Game.OnStart += Game.OnStart;
             LeagueSharp.Game.OnUpdate += Game.OnUpdate;
             CustomEvents.Game.OnGameEnd += RemoveEventHandler;
         }
