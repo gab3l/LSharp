@@ -43,7 +43,7 @@ namespace OnGameEndLeave
 
         internal static void OnNotify(GameNotifyEventArgs args)
         {
-            if (string.Equals(args.EventId.ToString(),"OnHQKill"))
+            if (string.Equals(args.EventId.ToString(),"OnHQKill") || args.EventId == GameEventId.OnHQKill)
             {
                 var process = Process.GetProcessById(Process.GetCurrentProcess().Id);
                 Thread.Sleep(20000);
