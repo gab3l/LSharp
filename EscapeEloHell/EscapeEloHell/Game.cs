@@ -64,31 +64,30 @@ namespace RelaxedWinner
 
         internal static void OnNotify(GameNotifyEventArgs args)
         {
-            if (!string.Equals(args.EventId.ToString(), "OnHQKill") || args.EventId != GameEventId.OnHQKill )
+            if (string.Equals(args.EventId.ToString(), "OnHQKill") || args.EventId == GameEventId.OnHQKill)
             {
-                return;
-            }
-            if (UserInterface.Menu == null || !UserInterface.IsEnabled)
-            {
-                return;
-            }
+                if (UserInterface.Menu == null || !UserInterface.IsEnabled)
+                {
+                    return;
+                }
 
-            ToogleMuteAll(UserInterface.IsMuteAll, true);
+                ToogleMuteAll(UserInterface.IsMuteAll, true);
 
-            if (UserInterface.IsEndMessageAll)
-            {
-                LeagueSharp.Game.Say(
-                    @"/all " +
-                    RelaxedWinnerDll.RelaxedWinner.GetMessage(RelaxedWinnerDll.RelaxedWinner.MessageData.GameEnd)
-                        .Message);
-            }
+                if (UserInterface.IsEndMessageAll)
+                {
+                    LeagueSharp.Game.Say(
+                        @"/all " +
+                        RelaxedWinnerDll.RelaxedWinner.GetMessage(RelaxedWinnerDll.RelaxedWinner.MessageData.GameEnd)
+                            .Message);
+                }
 
-            if (UserInterface.IsEndMessageTeam)
-            {
-                ChatTalk(
-                    3000, 4000,
-                    RelaxedWinnerDll.RelaxedWinner.GetMessage(RelaxedWinnerDll.RelaxedWinner.MessageData.GameEnd)
-                        .Message);
+                if (UserInterface.IsEndMessageTeam)
+                {
+                    ChatTalk(
+                        3000, 4000,
+                        RelaxedWinnerDll.RelaxedWinner.GetMessage(RelaxedWinnerDll.RelaxedWinner.MessageData.GameEnd)
+                            .Message);
+                }
             }
         }
     }
