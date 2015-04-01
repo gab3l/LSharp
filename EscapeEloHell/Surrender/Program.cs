@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 
 namespace Surrender
 {
@@ -6,21 +7,18 @@ namespace Surrender
     {
         private static void RemoveEventHandler(EventArgs args)
         {
-            LeagueSharp.Game.OnStart -= Game.Game_OnStart;
-            LeagueSharp.Game.OnUpdate -= Game.GameOnUpdate;
+            LeagueSharp.Game.OnUpdate -= Game.OnUpdate;
+            LeagueSharp.Game.OnNotify -= Game.OnNotify;
         }
 
         private static void Main(string[] args)
         {
-            UserInterface.CreateMenu();
-            RegisterEvents();
-            LeagueSharp.Game.PrintChat("Surrender loaded.");
-        }
+            LeagueSharp.Game.PrintChat(string.Format("Surrender loaded (v{0}).", Assembly.GetExecutingAssembly().GetName().Version));
 
-        private static void RegisterEvents()
-        {
-            LeagueSharp.Game.OnStart += Game.Game_OnStart;
-            LeagueSharp.Game.OnUpdate += Game.GameOnUpdate;
+            UserInterface.CreateMenu();
+            
+            LeagueSharp.Game.OnUpdate += Game.OnUpdate;
+            LeagueSharp.Game.OnNotify += Game.OnNotify;
             LeagueSharp.Game.OnEnd += RemoveEventHandler;
         }
     }

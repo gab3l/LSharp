@@ -9,7 +9,6 @@ namespace Surrender
     public class Game
     {
         private static DateTime time;
-        public static void Game_OnStart(EventArgs args) {}
 
         public static void AgreeSurrender()
         {
@@ -41,53 +40,54 @@ namespace Surrender
             ChatWithDelay(2000, 3000, new Random(2).Next() == 1 ? @"/noff" : @"/nosurrender");
         }
 
-        private static bool SurrenderVoteRunning(GameNotifyEventArgs args)
-        {
-            if (args.EventId == GameEventId.OnSurrenderVote)
-            {
-                LeagueSharp.Game.PrintChat("args.EventId == GameEventId.OnSurrenderVote");
-            }
-            else if (args.EventId == GameEventId.OnSurrenderVoteStart)
-            {
-                LeagueSharp.Game.PrintChat("args.EventId == GameEventId.OnSurrenderVoteStart");
-            }
-            return args.EventId == GameEventId.OnSurrenderVote || args.EventId == GameEventId.OnSurrenderVoteStart;
-        }
-
-        internal static void GameOnUpdate(EventArgs args)
+        internal static void OnUpdate(EventArgs args)
         {
             if (!UserInterface.IsEnabled)
             {
                 return;
             }
 
-            // WTF ist das bitte
-            if (LeagueSharp.Game.ClockTime > 1470 && DateTime.Now > time.AddMinutes(3))
-            {
-                if (UserInterface.IsAlwaysDeclineSurrender)
-                {
-                    DeclineSurrender();
-                    time = DateTime.Now;
-                    return;
-                }
-
-                if (UserInterface.IsSmartSurrender)
-                {
-                    if (IsTeamLossing())
-                    {
-                        AgreeSurrender();
-                        time = DateTime.Now;
-                        return;
-                    }
-                }
-            }
-
-            if (LeagueSharp.Game.ClockTime > 1470 * 3 /* 60 min */&& DateTime.Now > time.AddMinutes(3) &&
-                UserInterface.IsSurrenderAfterOneHour)
+            if (UserInterface.IsSurrenderAfterOneHour && LeagueSharp.Game.ClockTime > 1470 * 3 /* 60 min */&& DateTime.Now > time.AddMinutes(3))
             {
                 time = DateTime.Now;
                 AgreeSurrender();
             }
         }
+
+        internal static void OnNotify(GameNotifyEventArgs args)
+        {
+            if (!VoteStarted(args))
+            {
+                return;
+            }
+            Console.WriteLine(string.Format("Id={0} Network={1}", args.EventId, args.NetworkId));
+            // Vote Running...
+            if (UserInterface.IsSurrenderAfterOneHour && LeagueSharp.Game.ClockTime > 1470 * 3)
+            {
+                AgreeSurrender();
+            }
+            else if (UserInterface.IsAlwaysDeclineSurrender)
+            {
+                DeclineSurrender();
+            }
+            else if (UserInterface.IsSmartSurrender)
+            {
+                if (IsTeamLossing())
+                {
+                    AgreeSurrender();
+                }
+            }
+        }
+
+        private static bool VoteStarted(GameNotifyEventArgs args)
+        {
+            //if (args.EventId.ToString() == "bla" || args.EventId == dec)
+            //{
+            //return true;
+            //}
+            return false;
+        }
     }
 }
+
+

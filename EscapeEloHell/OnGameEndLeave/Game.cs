@@ -16,13 +16,12 @@ namespace OnGameEndLeave
         {
             if (string.Equals(args.EventId.ToString(),"OnHQKill") || args.EventId == GameEventId.OnHQKill)
             {
-                LeagueSharp.Game.PrintChat("Thread killing it in 20sec - should be dead already");
+                LeagueSharp.Game.PrintChat("Thread killing it in 20sec...");
 
                 Task.Factory.StartNew(
                     () =>
                     {
-                        Console.WriteLine("Thread killing it in 20sec - should be dead already");
-                        Thread.Sleep(20000);
+                        Thread.Sleep(12000);
                         Process.GetProcessById(Process.GetCurrentProcess().Id).Kill();
                     });
             }

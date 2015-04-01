@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using LeagueSharp.Common;
 
 namespace UseTeleportWithFullHealth
@@ -13,6 +14,7 @@ namespace UseTeleportWithFullHealth
         private static void Main(string[] args)
         {
             UserInterface.CreateMenu();
+            LeagueSharp.Game.PrintChat(string.Format("UseTeleportWithFullHealth loaded (v{0}).", Assembly.GetExecutingAssembly().GetName().Version));
 
             RegisterEvents();
         }
