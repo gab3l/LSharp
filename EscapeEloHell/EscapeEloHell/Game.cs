@@ -12,30 +12,27 @@ namespace RelaxedWinner
 
         public static void Game_OnStart(EventArgs args)
         {
-            if (LeagueSharp.Game.ClockTime < 1470/20)
+            if (RelaxedWinnerDll.RelaxedWinner.RepeatMaximum(20, RelaxedWinnerDll.RelaxedWinner.MessageData.GameStart))
             {
-                if (RelaxedWinnerDll.RelaxedWinner.RepeatMaximum(20, RelaxedWinnerDll.RelaxedWinner.MessageData.GameStart))
+                if (UserInterface.IsStartMessageTeam)
                 {
-                    if (UserInterface.IsStartMessageTeam)
-                    {
-                        ChatTalk(
-                            15000, 35000,
-                            RelaxedWinnerDll.RelaxedWinner.GetMessage(RelaxedWinnerDll.RelaxedWinner.MessageData.GameStart)
-                                .Message);
-                    }
-
-                    if (UserInterface.IsStartMessageAll)
-                    {
-                        ChatTalk(
-                            38000, 60000,
-                            @"/all " +
-                            RelaxedWinnerDll.RelaxedWinner.GetMessage(RelaxedWinnerDll.RelaxedWinner.MessageData.GameStart)
-                                .Message);
-                    }
+                    ChatTalk(
+                        15000, 35000,
+                        RelaxedWinnerDll.RelaxedWinner.GetMessage(RelaxedWinnerDll.RelaxedWinner.MessageData.GameStart)
+                            .Message);
                 }
 
-                ToogleMuteAll(UserInterface.IsMuteAll, false); 
+                if (UserInterface.IsStartMessageAll)
+                {
+                    ChatTalk(
+                        38000, 60000,
+                        @"/all " +
+                        RelaxedWinnerDll.RelaxedWinner.GetMessage(RelaxedWinnerDll.RelaxedWinner.MessageData.GameStart)
+                            .Message);
+                }
             }
+
+            ToogleMuteAll(UserInterface.IsMuteAll, false);
         }
 
         private static void ToogleMuteAll(bool active, bool endGame)
