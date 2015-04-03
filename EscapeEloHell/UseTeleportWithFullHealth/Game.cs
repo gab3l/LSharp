@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading;
 using LeagueSharp;
 using LeagueSharp.Common;
 using SharpDX;
@@ -9,7 +10,7 @@ namespace UseTeleportWithFullHealth
 {
     public class Game
     {
-        private static Spell teleportingSpell;
+        private static SpellSlot teleportingSpell;
         private const int Tolerance = 2;
         internal static void OnUpdate(EventArgs args)
         {
@@ -20,22 +21,23 @@ namespace UseTeleportWithFullHealth
             }
 
             var hero = ObjectManager.Player;
-            teleportingSpell = new Spell(ObjectManager.Player.GetSpellSlot("SummonerTeleport"));
+            teleportingSpell = ObjectManager.Player.GetSpellSlot("SummonerTeleport");
             if (Teleport.IsStart(hero.HealthPercent, hero.ManaPercent) && teleportingSpell.IsReady())
             {
-                LeagueSharp.Game.PrintChat("Go teleport now...");
-                teleportingSpell.Cast(new Vector3(LeagueSharp.Game.CursorPos.X, LeagueSharp.Game.CursorPos.Y, LeagueSharp.Game.CursorPos.Y));
-                //var results =
-                //    ObjectManager.Get<Obj_AI_Base>()
-                //        .Where(
-                //            x =>
-                //                Math.Abs(x.Position.X - LeagueSharp.Game.CursorPos.X) < Tolerance &&
-                //                Math.Abs(x.Position.Y - LeagueSharp.Game.CursorPos.Y) < Tolerance);
-
-                //foreach (var item in results.Where(x => teleportingSpell.CanCast(x)))
-                //{
-                //    teleportingSpell.Cast(item);
-                //}
+                var results =
+                              ObjectManager.Get<Obj_AI_Base>()
+                                  .Where(
+                                      x =>
+                                          Math.Abs(x.Position.X - LeagueSharp.Game.CursorPos.X) < 20 &&
+                                          Math.Abs(x.Position.Y - LeagueSharp.Game.CursorPos.Y) < 20 &&
+                                          Math.Abs(x.Position.Z - LeagueSharp.Game.CursorPos.Z) < 20);
+                foreach (var item in results)
+                {
+                    if (!ObjectManager.Player.Spellbook.IsCastingSpell)
+                    {
+                        ObjectManager.Player.Spellbook.CastSpell(teleportingSpell, item);
+                    } 
+                }
             }
         }
     }

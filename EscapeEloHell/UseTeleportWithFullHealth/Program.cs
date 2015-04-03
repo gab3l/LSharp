@@ -15,7 +15,7 @@ namespace UseTeleportWithFullHealth
         private static void Main(string[] args)
         {
             UserInterface.CreateMenu();
-            LeagueSharp.Game.PrintChat(string.Format("UseTeleportWithFullHealth loaded.");
+            LeagueSharp.Game.PrintChat(string.Format("UseTeleportWithFullHealth loaded."));
             RegisterEvents();
         }
 
