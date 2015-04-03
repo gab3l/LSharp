@@ -1,0 +1,17 @@
+﻿
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is up-to-date with 'origin/master'.
+#
+# Changes to be committed:
+#	renamed:    EscapeEloHell/EscapeEloHell/Files.cs -> EscapeEloHell/EscapeEloHellDll/Files.cs
+#	modified:   EscapeEloHell/EscapeEloHellDll/RelaxedWinnerDll.csproj
+#	new file:   EscapeEloHell/EscapeEloHellDll/SerializeXml.cs
+#	modified:   EscapeEloHell/OnGameEndLeave/OnGameEndLeave.csproj
+#	modified:   EscapeEloHell/OnGameEndLeave/Program.cs
+#	modified:   EscapeEloHell/Surrender/Surrender.csproj
+#	modified:   EscapeEloHell/UseTeleportWithFullHealth/Program.cs
+#	modified:   EscapeEloHell/UseTeleportWithFullHealth/UseTeleportWithFullHealth.csproj
+#
+

@@ -3,6 +3,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using LeagueSharp;
 using LeagueSharp.Common;
+using System.Diagnostics;
 
 namespace OnGameEndLeave
 {
@@ -19,7 +20,6 @@ namespace OnGameEndLeave
             UserInterface.CreateMenu();
             RegisterEvents();
             LeagueSharp.Game.PrintChat(string.Format("OnGameEndLeave loaded."));
-
         }
 
         private static void RegisterEvents()
