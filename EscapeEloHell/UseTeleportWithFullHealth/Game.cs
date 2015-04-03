@@ -22,7 +22,9 @@ namespace UseTeleportWithFullHealth
 
             var hero = ObjectManager.Player;
             teleportingSpell = ObjectManager.Player.GetSpellSlot("SummonerTeleport");
-            if (Teleport.IsStart(hero.HealthPercent, hero.ManaPercent) && teleportingSpell.IsReady())
+            //LeagueSharp.Game.PrintChat("hero.HealthPercent, hero.ManaPercent" + hero.MaxHealth / hero.Health + "  " +  hero.MaxMana / hero.Mana);
+            //LeagueSharp.Game.PrintChat("Teleport=" + Teleport.IsStart(hero.HealthPercent, hero.ManaPercent).ToString());
+            if (Teleport.IsStart(hero.MaxHealth / hero.Health, hero.MaxMana / hero.Mana) && teleportingSpell.IsReady())
             {
                 var results =
                               ObjectManager.Get<Obj_AI_Base>()
