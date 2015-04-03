@@ -14,7 +14,7 @@ namespace RelaxedWinnerDll
 
         public static void GetData()
         {
-            if (!File.Exists(Path.Combine(Folder, FileName)))
+            if (true) /*!File.Exists(Path.Combine(Folder, FileName))*/
             {
                 RelaxedWinnerDll.RelaxedWinner.MessageData.GameEnd = new List<Information>
                 {
@@ -38,7 +38,7 @@ namespace RelaxedWinnerDll
                     new Information { Message = "HF" },
                     new Information { Message = "hf" }
                 };
-                Save();
+                //Save();
             }
             else
             {
