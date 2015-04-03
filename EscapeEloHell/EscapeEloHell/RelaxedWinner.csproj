@@ -73,7 +73,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Files.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="UserInterface.cs" />
     <Compile Include="Program.cs" />

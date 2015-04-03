@@ -1,5 +1,6 @@
 ﻿using System;
 using LeagueSharp.Common;
+using RelaxedWinnerDll;
 
 namespace RelaxedWinner
 {
@@ -17,7 +18,7 @@ namespace RelaxedWinner
             Initialize();
 
             LeagueSharp.Game.PrintChat("Relaxed Winner loaded.");
-            LeagueSharp.Game.PrintChat("Change messages from RelaxedWinner in " + Files.Folder + @"\" + Files.FileName);
+            //LeagueSharp.Game.PrintChat("Change messages from RelaxedWinner in " + Files.Folder + @"\" + Files.FileName);
 
             if (!UserInterface.IsEnabled)
             {
@@ -33,7 +34,7 @@ namespace RelaxedWinner
         private static void Initialize()
         {
             UserInterface.CreateMenu();
-            Files.CreateFolder();
+            //Files.CreateFolder();
             Files.GetData();
         }
     }
