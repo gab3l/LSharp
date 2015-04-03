@@ -30,9 +30,9 @@ namespace UseTeleportWithFullHealth
                               ObjectManager.Get<Obj_AI_Base>()
                                   .Where(
                                       x =>
-                                          Math.Abs(x.Position.X - LeagueSharp.Game.CursorPos.X) < 2000 &&
-                                          Math.Abs(x.Position.Y - LeagueSharp.Game.CursorPos.Y) < 2000 &&
-                                          Math.Abs(x.Position.Z - LeagueSharp.Game.CursorPos.Z) < 2000);
+                                          Math.Abs(x.Position.X - LeagueSharp.Game.CursorPos.X) < 200 &&
+                                          Math.Abs(x.Position.Y - LeagueSharp.Game.CursorPos.Y) < 200 &&
+                                          Math.Abs(x.Position.Z - LeagueSharp.Game.CursorPos.Z) < 200);
                 foreach (var item in results)
                 {
                     if (!ObjectManager.Player.Spellbook.IsCastingSpell)
