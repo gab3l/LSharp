@@ -84,7 +84,7 @@ namespace RelaxedWinner
                 if (UserInterface.IsEndMessageTeam)
                 {
                     ChatTalk(
-                        3000, 4000,
+                        2000, 3000,
                         RelaxedWinnerDll.RelaxedWinner.GetMessage(RelaxedWinnerDll.RelaxedWinner.MessageData.GameEnd)
                             .Message);
                 }
