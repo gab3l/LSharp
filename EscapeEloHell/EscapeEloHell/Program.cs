@@ -10,8 +10,7 @@ namespace RelaxedWinner
         {
             LeagueSharp.Game.OnStart -= Game.Game_OnStart;
             LeagueSharp.Game.OnNotify -= Game.OnNotify;
-        }            
-
+        }
 
         private static void Main(string[] args)
         {

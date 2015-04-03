@@ -10,6 +10,7 @@ namespace OnGameEndLeave
         {
             get { return Menu.Item("enabled").GetValue<bool>(); }
         }
+
         internal static int WaitTimeInSeconds
         {
             get { return Menu.Item("waitTimeInSecondsBeforeKill").GetValue<int>(); }
@@ -22,8 +23,8 @@ namespace OnGameEndLeave
             var submenu = Menu.AddSubMenu(new Menu("Configuration", "configuration"));
 
             submenu.AddItem(
-              new MenuItem("waitTimeInSecondsBeforeKill", "Wait seconds before killing client").SetValue(
-                  new Slider(15,0,120)));
+                new MenuItem("waitTimeInSecondsBeforeKill", "Wait seconds before killing client").SetValue(
+                    new Slider(15, 0, 120)));
             Menu.AddToMainMenu();
         }
     }

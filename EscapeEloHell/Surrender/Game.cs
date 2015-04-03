@@ -47,7 +47,8 @@ namespace Surrender
                 return;
             }
 
-            if (UserInterface.IsSurrenderAfterOneHour && LeagueSharp.Game.ClockTime > 1470 * 3 /* 60 min */&& DateTime.Now > time.AddMinutes(3))
+            if (UserInterface.IsSurrenderAfterOneHour && LeagueSharp.Game.ClockTime > 1470 * 3 /* 60 min */&&
+                DateTime.Now > time.AddMinutes(3))
             {
                 time = DateTime.Now;
                 AgreeSurrender();
@@ -60,7 +61,7 @@ namespace Surrender
             {
                 return;
             }
-            Console.WriteLine(string.Format("Id={0} Network={1}", args.EventId, args.NetworkId));
+            Console.WriteLine("Id={0} Network={1}", args.EventId, args.NetworkId);
             // Vote Running...
             if (UserInterface.IsSurrenderAfterOneHour && LeagueSharp.Game.ClockTime > 1470 * 3)
             {
@@ -89,5 +90,3 @@ namespace Surrender
         }
     }
 }
-
-

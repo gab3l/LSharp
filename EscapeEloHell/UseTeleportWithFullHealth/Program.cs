@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Reflection;
 using LeagueSharp.Common;
-using System.Diagnostics;
 
 namespace UseTeleportWithFullHealth
 {

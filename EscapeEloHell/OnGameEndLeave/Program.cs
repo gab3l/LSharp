@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using LeagueSharp;
 using LeagueSharp.Common;
-using System.Diagnostics;
 
 namespace OnGameEndLeave
 {

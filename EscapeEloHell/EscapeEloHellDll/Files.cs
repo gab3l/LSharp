@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using RelaxedWinnerDll.Model;
 
@@ -8,15 +7,13 @@ namespace RelaxedWinnerDll
     public class Files
     {
         public const string FileName = "Messages.xml";
-
-        public static string Folder = Directory.GetCurrentDirectory() +
-                                      @"\RelaxedWinner";
+        public static string Folder = Directory.GetCurrentDirectory() + @"\RelaxedWinner";
 
         public static void GetData()
         {
             if (true) /*!File.Exists(Path.Combine(Folder, FileName))*/
             {
-                RelaxedWinnerDll.RelaxedWinner.MessageData.GameEnd = new List<Information>
+                RelaxedWinner.MessageData.GameEnd = new List<Information>
                 {
                     new Information { Message = "gg" },
                     new Information { Message = "GG" },
@@ -25,7 +22,7 @@ namespace RelaxedWinnerDll
                     new Information { Message = "good game all" },
                     new Information { Message = "gg wp" }
                 };
-                RelaxedWinnerDll.RelaxedWinner.MessageData.GameStart = new List<Information>
+                RelaxedWinner.MessageData.GameStart = new List<Information>
                 {
                     new Information { Message = "gl & hf" },
                     new Information { Message = "GL & HF" },
@@ -42,10 +39,10 @@ namespace RelaxedWinnerDll
             }
             else
             {
-                RelaxedWinnerDll.RelaxedWinner.MessageData =
+                RelaxedWinner.MessageData =
                     (Messages)
                         SerializeXml.DeserializeFromXml(
-                            Path.Combine(Folder, FileName), RelaxedWinnerDll.RelaxedWinner.MessageData.GetType());
+                            Path.Combine(Folder, FileName), RelaxedWinner.MessageData.GetType());
             }
         }
 
@@ -59,7 +56,7 @@ namespace RelaxedWinnerDll
 
         internal static void Save()
         {
-            SerializeXml.SerializeToXml(RelaxedWinnerDll.RelaxedWinner.MessageData, Path.Combine(Folder, FileName));
+            SerializeXml.SerializeToXml(RelaxedWinner.MessageData, Path.Combine(Folder, FileName));
         }
     }
 }

@@ -13,10 +13,11 @@ namespace Surrender
 
         private static void Main(string[] args)
         {
-            LeagueSharp.Game.PrintChat(string.Format("Surrender loaded (v{0}).", Assembly.GetExecutingAssembly().GetName().Version));
+            LeagueSharp.Game.PrintChat(
+                string.Format("Surrender loaded (v{0}).", Assembly.GetExecutingAssembly().GetName().Version));
 
             UserInterface.CreateMenu();
-            
+
             LeagueSharp.Game.OnUpdate += Game.OnUpdate;
             LeagueSharp.Game.OnNotify += Game.OnNotify;
             LeagueSharp.Game.OnEnd += RemoveEventHandler;
