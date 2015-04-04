@@ -17,9 +17,7 @@ namespace RelaxedWinnerDll
                 {
                     new Information { Message = "gg" },
                     new Information { Message = "GG" },
-                    new Information { Message = "gg all" },
-                    new Information { Message = "GG all" },
-                    new Information { Message = "good game all" },
+                    new Information { Message = "GG WP" },
                     new Information { Message = "gg wp" }
                 };
                 RelaxedWinner.MessageData.GameStart = new List<Information>
