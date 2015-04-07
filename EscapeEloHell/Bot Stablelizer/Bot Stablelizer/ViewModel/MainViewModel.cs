@@ -26,6 +26,13 @@ namespace Bot_Stablelizer.ViewModel
             CloseCommand = new RelayCommand(CloseBots);
             StartAllCommand = new RelayCommand(StartAll);
             StartDelayedCommand = new RelayCommand(StartDelayed);
+            CreateAccountClicked = new RelayCommand(CreateAccount);
+            
+        }
+
+        private void CreateAccount()
+        {
+            Bot_Stablelizer.CloseByPictureCompare.CreateAccount.Create();
         }
 
         private static void StartDelayed()
@@ -40,6 +47,7 @@ namespace Bot_Stablelizer.ViewModel
             }
         }
 
+        public RelayCommand CreateAccountClicked { get; set; }
         public RelayCommand CloseCommand { get; set; }
         public RelayCommand StartAllCommand { get; set; }
         public RelayCommand StartDelayedCommand { get; set; }

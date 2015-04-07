@@ -51,6 +51,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.1.1.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -72,6 +73,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="CloseByPictureCompare\Closeing.cs" />
+    <Compile Include="CloseByPictureCompare\CreateAccount.cs" />
+    <Compile Include="CloseByPictureCompare\Names.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="CloseByPictureCompare\Rect.cs" />
