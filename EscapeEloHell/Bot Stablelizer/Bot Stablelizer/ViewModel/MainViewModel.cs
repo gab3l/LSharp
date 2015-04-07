@@ -27,7 +27,6 @@ namespace Bot_Stablelizer.ViewModel
             StartAllCommand = new RelayCommand(StartAll);
             StartDelayedCommand = new RelayCommand(StartDelayed);
             CreateAccountClicked = new RelayCommand(CreateAccount);
-            
         }
 
         private void CreateAccount()

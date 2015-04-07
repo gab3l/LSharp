@@ -324,7 +324,7 @@ namespace Bot_Stablelizer.CloseByPictureCompare
 "Deorward", 
 "Dercarat", 
 "Derenai", 
-"Derylynn
+"Derylynn",
 "Dewi", 
 "Dewi", 
 "Diamar", 
@@ -479,7 +479,7 @@ namespace Bot_Stablelizer.CloseByPictureCompare
 "Gled", 
 "Glenndun", 
 "Glynydd", 
-"Gnarf
+"Gnarf",
 "Gnimsch", 
 "Gnosch", 
 "Goathaire", 

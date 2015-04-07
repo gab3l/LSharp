@@ -20,7 +20,7 @@
             <Button Command="{Binding Main.StartAllCommand}">Start all</Button>
             <Button Command="{Binding Main.CloseCommand}">Close Bots</Button>
             <Button Click="RestartClicked">Restart all</Button>
-            <Button Click="CreateAccountClicked" Background="Aqua">Create Acc</Button>
+            <Button Command="{Binding Main.CreateAccountClicked}" Background="Aqua">Create Acc</Button>
         </StackPanel>
 
     </Grid>
