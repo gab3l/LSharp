@@ -37,31 +37,47 @@ namespace Bot_Stablelizer.CloseByPictureCompare
 
         private static void Send(string name, string pw)
         {
+            var delay = 100;
             SendKeys.SendWait("^a");
+            Thread.Sleep(delay);
             SendKeys.SendWait(name);
+            Thread.Sleep(delay);
             SendKeys.SendWait("{TAB}");
-            Thread.Sleep(10);
+            Thread.Sleep(delay);
             SendKeys.SendWait(pw);
-            Thread.Sleep(10);
+            Thread.Sleep(delay);
             SendKeys.SendWait("{TAB}");
-            Thread.Sleep(10);
+            Thread.Sleep(delay);
             SendKeys.SendWait(pw);
-            Thread.Sleep(10);
+            Thread.Sleep(delay);
             SendKeys.SendWait("{TAB}");
+            Thread.Sleep(delay);
             SendKeys.SendWait("^a");
+            Thread.Sleep(delay);
             SendKeys.SendWait(GetMail());
+            Thread.Sleep(delay);
             SendKeys.SendWait("{TAB}");
-            SendKeys.SendWait("02");
+            Thread.Sleep(delay);
+            //SendKeys.SendWait("02");
+            //Thread.Sleep(delay);
             SendKeys.SendWait("{TAB}");
-            SendKeys.SendWait("02");
+            //Thread.Sleep(delay);
+            //SendKeys.SendWait("02");
+            //Thread.Sleep(delay);
             SendKeys.SendWait("{TAB}");
-            SendKeys.SendWait("1982");
+            Thread.Sleep(delay);
+            //SendKeys.SendWait("1982");
+            //Thread.Sleep(delay);
             SendKeys.SendWait("{TAB}");
+            Thread.Sleep(delay);
             SendKeys.SendWait("{TAB}");
-            SendKeys.SendWait(" ");
-            
+            Thread.Sleep(delay);
+            //Thread.Sleep(delay);
+
             SendKeys.SendWait("{TAB}");
+            //Thread.Sleep(delay);
             SendKeys.SendWait("{TAB}");
+            //Thread.Sleep(delay);
             SendKeys.SendWait("{TAB}");
 
         }
