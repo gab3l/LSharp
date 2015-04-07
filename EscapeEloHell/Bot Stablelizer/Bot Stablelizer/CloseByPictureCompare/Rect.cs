@@ -1,7 +1,6 @@
 ﻿using System.Runtime.InteropServices;
-using System.Windows;
-using System.Windows.Shapes;
-namespace Bot_Stablelizer
+
+namespace Bot_Stablelizer.CloseByPictureCompare
 {
 
     [StructLayout(LayoutKind.Sequential)]
@@ -12,16 +11,16 @@ namespace Bot_Stablelizer
         private int _Right;
         private int _Bottom;
 
-        public Rct(Rct Rectangle)
-            : this(Rectangle.Left, Rectangle.Top, Rectangle.Right, Rectangle.Bottom)
+        public Rct(Rct rectangle)
+            : this(rectangle.Left, rectangle.Top, rectangle.Right, rectangle.Bottom)
         {
         }
-        public Rct(int Left, int Top, int Right, int Bottom)
+        public Rct(int left, int top, int right, int bottom)
         {
-            _Left = Left;
-            _Top = Top;
-            _Right = Right;
-            _Bottom = Bottom;
+            _Left = left;
+            _Top = top;
+            _Right = right;
+            _Bottom = bottom;
         }
 
         public int X
@@ -83,21 +82,21 @@ namespace Bot_Stablelizer
             }
         }
 
-        public static implicit operator System.Drawing.Rectangle(Rct Rectangle)
+        public static implicit operator System.Drawing.Rectangle(Rct rectangle)
         {
-            return new System.Drawing.Rectangle(Rectangle.Left, Rectangle.Top, Rectangle.Width, Rectangle.Height);
+            return new System.Drawing.Rectangle(rectangle.Left, rectangle.Top, rectangle.Width, rectangle.Height);
         }
-        public static implicit operator Rct(System.Drawing.Rectangle Rectangle)
+        public static implicit operator Rct(System.Drawing.Rectangle rectangle)
         {
-            return new Rct(Rectangle.Left, Rectangle.Top, Rectangle.Right, Rectangle.Bottom);
+            return new Rct(rectangle.Left, rectangle.Top, rectangle.Right, rectangle.Bottom);
         }
-        public static bool operator ==(Rct Rectangle1, Rct Rectangle2)
+        public static bool operator ==(Rct rectangle1, Rct rectangle2)
         {
-            return Rectangle1.Equals(Rectangle2);
+            return rectangle1.Equals(rectangle2);
         }
-        public static bool operator !=(Rct Rectangle1, Rct Rectangle2)
+        public static bool operator !=(Rct rectangle1, Rct rectangle2)
         {
-            return !Rectangle1.Equals(Rectangle2);
+            return !rectangle1.Equals(rectangle2);
         }
 
         public override string ToString()
@@ -110,9 +109,9 @@ namespace Bot_Stablelizer
             return ToString().GetHashCode();
         }
 
-        public bool Equals(Rct Rectangle)
+        public bool Equals(Rct rectangle)
         {
-            return Rectangle.Left == _Left && Rectangle.Top == _Top && Rectangle.Right == _Right && Rectangle.Bottom == _Bottom;
+            return rectangle.Left == _Left && rectangle.Top == _Top && rectangle.Right == _Right && rectangle.Bottom == _Bottom;
         }
 
         public override bool Equals(object Object)

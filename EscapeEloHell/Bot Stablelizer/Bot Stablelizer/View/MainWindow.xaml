@@ -3,16 +3,24 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Bot Stablelizer" Height="100" Width="250"
         Loaded="MainWindow_OnLoaded"
+        DataContext="{StaticResource Locator}"
         >
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="100*"/>
+            <RowDefinition Height="22"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <TextBlock>Checking every 10 sec for finished games...</TextBlock>
         <!--<StackPanel Orientation="Horizontal">
             <Button Content="Folder" Command="{Binding SelectFolderCommand}"></Button>
             <TextBox></TextBox>
         </StackPanel>-->
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <Button Command="{Binding Main.StartDelayedCommand}">Start 60 delay</Button>
+            <Button Command="{Binding Main.StartAllCommand}">Start all</Button>
+            <Button Command="{Binding Main.CloseCommand}">Close</Button>
+            <Button Click="RestartClicked">Restart</Button>
+        </StackPanel>
+
     </Grid>
 </Window>
