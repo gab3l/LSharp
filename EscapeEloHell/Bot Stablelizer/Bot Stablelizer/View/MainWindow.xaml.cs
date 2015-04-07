@@ -6,6 +6,8 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Threading;
 using Bot_Stablelizer.CloseByPictureCompare;
+using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 namespace Bot_Stablelizer.View
 {
@@ -16,6 +18,7 @@ namespace Bot_Stablelizer.View
     {
         private readonly DispatcherTimer dispatcherTimer = new DispatcherTimer();
         private readonly DispatcherTimer dispatcherTimerClosePopUp = new DispatcherTimer();
+        private readonly DispatcherTimer dispatcherTimerErrorPopUp = new DispatcherTimer();
 
         public MainWindow()
         {
@@ -36,16 +39,41 @@ namespace Bot_Stablelizer.View
             dispatcherTimerClosePopUp.Tick += DispatcherTimerClosePopUpTick;
             dispatcherTimerClosePopUp.Interval = TimeSpan.FromSeconds(1);
             dispatcherTimerClosePopUp.Start();
+
+            DispatcherTimerErrorPopUpTick(null, null);
+            dispatcherTimerErrorPopUp.Tick += DispatcherTimerErrorPopUpTick;
+            dispatcherTimerErrorPopUp.Interval = TimeSpan.FromSeconds(120);
+            dispatcherTimerErrorPopUp.Start();
+        }
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, IntPtr wParam, IntPtr lParam);
+
+        const UInt32 WM_CLOSE = 0x0010;
+
+        private void DispatcherTimerErrorPopUpTick(object sender, EventArgs e)
+        {
+
+            foreach (KeyValuePair<IntPtr, string> window in OpenWindowGetter.GetOpenWindows())
+            {
+                IntPtr handle = window.Key;
+                string title = window.Value;
+
+                if(title.ToLower().Equals("failed to connect") ||
+                title.ToLower().Contains("network") ||
+                title.ToLower().Contains("netzwerkfehler") ||
+                title.Equals("VoliBot"))
+                {
+                    SendMessage(handle, WM_CLOSE, IntPtr.Zero, IntPtr.Zero);
+                }
+            }
+          
         }
 
         private void DispatcherTimerClosePopUpTick(object sender, EventArgs e)
         {
             foreach (var item in Process.GetProcesses().Where(x => x.MainWindowTitle.Equals("Error Report") ||
-                x.MainWindowTitle.Equals("Current Connected: -1") ||
-               x.MainWindowTitle.ToLower().Equals("failed to connect") ||
-                x.MainWindowTitle.ToLower().Contains("network") ||
-                x.MainWindowTitle.ToLower().Contains("netzwerkfehler") ||
-                x.MainWindowTitle.Equals("VoliBot")))
+                x.MainWindowTitle.Equals("Current Connected: -1")))
             {
                 try
                 {
