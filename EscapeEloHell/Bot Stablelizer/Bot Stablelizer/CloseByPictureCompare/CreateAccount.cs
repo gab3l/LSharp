@@ -15,7 +15,7 @@ namespace Bot_Stablelizer.CloseByPictureCompare
         {
             Thread.Sleep(1000);
             var name = GetName();
-            var pw = "test";
+            var pw = "";
 
             Send(name, pw);
 
@@ -37,17 +37,23 @@ namespace Bot_Stablelizer.CloseByPictureCompare
 
         private static void Send(string name, string pw)
         {
+            SendKeys.SendWait("^a");
             SendKeys.SendWait(name);
             SendKeys.SendWait("{TAB}");
+            Thread.Sleep(10);
             SendKeys.SendWait(pw);
+            Thread.Sleep(10);
             SendKeys.SendWait("{TAB}");
+            Thread.Sleep(10);
             SendKeys.SendWait(pw);
+            Thread.Sleep(10);
             SendKeys.SendWait("{TAB}");
+            SendKeys.SendWait("^a");
             SendKeys.SendWait(GetMail());
             SendKeys.SendWait("{TAB}");
-            SendKeys.SendWait("2");
+            SendKeys.SendWait("02");
             SendKeys.SendWait("{TAB}");
-            SendKeys.SendWait("2");
+            SendKeys.SendWait("02");
             SendKeys.SendWait("{TAB}");
             SendKeys.SendWait("1982");
             SendKeys.SendWait("{TAB}");
@@ -59,15 +65,15 @@ namespace Bot_Stablelizer.CloseByPictureCompare
             SendKeys.SendWait("{TAB}");
 
         }
-
+        private static Random rnd = new Random();
         private static string GetMail()
         {
-            return  new Random().Next(0, 20000).ToString() + "rzhtr" + new Random().Next(0, 20000).ToString() + @"@" + "web.com";
+            return  rnd.Next(0, 20000).ToString() + "rzhtr" + rnd.Next(0, 20000).ToString() + @"@" + "web.com";
         }
 
         private static string GetName()
         {
-            return Names.PreName[new Random().Next(0, Names.PreName.Count() - 1)] + Names.FantasyName[new Random().Next(0, Names.FantasyName.Count() - 1)];
+            return Names.PreName[rnd.Next(0, Names.PreName.Count() - 1)] + Names.FantasyName[rnd.Next(0, Names.FantasyName.Count() - 1)];
         }
     }
 }
