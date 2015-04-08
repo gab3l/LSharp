@@ -8,6 +8,7 @@ using System.Windows.Threading;
 using Bot_Stablelizer.CloseByPictureCompare;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using MessageBox = System.Windows.Forms.MessageBox;
 
 namespace Bot_Stablelizer.View
 {
@@ -101,7 +102,6 @@ namespace Bot_Stablelizer.View
                 }
             }
         }
-
         private void RestartClicked(object sender, RoutedEventArgs e)
         {
             foreach (
@@ -120,13 +120,12 @@ namespace Bot_Stablelizer.View
                 {
                 }
             }
-
             foreach (
                 var bot in
                     Directory.GetFiles(@"C:\Users\Fritz\Desktop\MyVoliBots", "VoliBot.exe", SearchOption.AllDirectories)
                 )
             {
-                Process.Start(bot);
+               var started = Process.Start(bot);
             }
         }
 

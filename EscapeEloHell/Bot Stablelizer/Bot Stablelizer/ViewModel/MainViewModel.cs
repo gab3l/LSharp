@@ -2,6 +2,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading;
+using Bot_Stablelizer.View;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 
@@ -60,7 +61,7 @@ namespace Bot_Stablelizer.ViewModel
         }
            private static void StartAll()
         {
-          foreach (
+            foreach (
                 var bot in
                     Directory.GetFiles(@"C:\Users\Fritz\Desktop\MyVoliBots", "VoliBot.exe", SearchOption.AllDirectories)
                 )

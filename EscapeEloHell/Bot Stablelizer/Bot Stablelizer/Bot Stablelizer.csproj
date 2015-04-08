@@ -75,6 +75,7 @@
     <Compile Include="CloseByPictureCompare\Closeing.cs" />
     <Compile Include="CloseByPictureCompare\CreateAccount.cs" />
     <Compile Include="CloseByPictureCompare\Names.cs" />
+    <Compile Include="CloseByPictureCompare\OpenWindowGetter.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="CloseByPictureCompare\Rect.cs" />
