@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>4b49b93b-d15f-41ab-8954-f4cc17518fd4</ProjectGuid>
+    <ProjectGuid>{CCB89CC8-CCFE-44FE-9367-CAE0ADEE5630}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FlawlessKalistaTest</RootNamespace>

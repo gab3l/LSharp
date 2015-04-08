@@ -21,6 +21,7 @@
             <Button Command="{Binding Main.CloseCommand}">Close Bots</Button>
             <Button Click="RestartClicked">Restart all</Button>
             <Button Command="{Binding Main.CreateAccountClicked}" Background="Aqua">Create Acc</Button>
+            <Button Command="{Binding Main.CopyVolibotClicked}" Background="Aqua">Copy volibos</Button>
         </StackPanel>
 
     </Grid>

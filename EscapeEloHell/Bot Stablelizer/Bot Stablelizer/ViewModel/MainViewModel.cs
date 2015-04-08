@@ -28,6 +28,23 @@ namespace Bot_Stablelizer.ViewModel
             StartAllCommand = new RelayCommand(StartAll);
             StartDelayedCommand = new RelayCommand(StartDelayed);
             CreateAccountClicked = new RelayCommand(CreateAccount);
+            CopyVolibotClicked = new RelayCommand(CopyVolibot);
+            
+        }
+
+        private void CopyVolibot()
+        {
+            foreach (
+              var bot in
+                  Directory.GetFiles(@"C:\Users\Fritz\Desktop\MyVoliBots", "VoliBot.exe", SearchOption.AllDirectories)
+              )
+            {
+                const string source = @"C:\Users\Fritz\Desktop\MyVoliBots\Volibot.exe";
+                if (!bot.ToLower().Equals(source.ToLower()))
+                {
+                    File.Copy(source, bot, true); 
+                }
+            }
         }
 
         private void CreateAccount()
@@ -51,6 +68,7 @@ namespace Bot_Stablelizer.ViewModel
         public RelayCommand CloseCommand { get; set; }
         public RelayCommand StartAllCommand { get; set; }
         public RelayCommand StartDelayedCommand { get; set; }
+        public RelayCommand CopyVolibotClicked { get; set; }
 
         private static void CloseBots()
         {
