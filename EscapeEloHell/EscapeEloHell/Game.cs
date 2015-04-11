@@ -11,42 +11,38 @@ namespace RelaxedWinner
 
         public static void Game_OnStart(EventArgs args)
         {
-            if (LeagueSharp.Game.ClockTime > 70)
+            //if (LeagueSharp.Game.ClockTime > 70)
+            //{
+            //    LeagueSharp.Game.PrintChat((LeagueSharp.Game.ClockTime.ToString());
+            //    // game running more than 1 minute - start is over!
+            //    return;
+            //}
+
+            if (UserInterface.IsStartMessageTeam)
             {
-                // game running more than 1 minute - start is over!
-                return;
+                ChatTalk(
+                    15000, 35000,
+                    RelaxedWinnerDll.RelaxedWinner.GetMessage(RelaxedWinnerDll.RelaxedWinner.MessageData.GameStart)
+                        .Message);
             }
 
-            if (RelaxedWinnerDll.RelaxedWinner.RepeatMaximum(20, RelaxedWinnerDll.RelaxedWinner.MessageData.GameStart))
+            if (UserInterface.IsStartMessageAll)
             {
-                if (UserInterface.IsStartMessageTeam)
-                {
-                    ChatTalk(
-                        15000, 35000,
-                        RelaxedWinnerDll.RelaxedWinner.GetMessage(RelaxedWinnerDll.RelaxedWinner.MessageData.GameStart)
-                            .Message);
-                }
-
-                if (UserInterface.IsStartMessageAll)
-                {
-                    ChatTalk(
-                        38000, 60000,
-                        @"/all " +
-                        RelaxedWinnerDll.RelaxedWinner.GetMessage(RelaxedWinnerDll.RelaxedWinner.MessageData.GameStart)
-                            .Message);
-                }
+                ChatTalk(
+                    38000, 60000,
+                    @"/all " +
+                    RelaxedWinnerDll.RelaxedWinner.GetMessage(RelaxedWinnerDll.RelaxedWinner.MessageData.GameStart)
+                        .Message);
             }
 
-            ToogleMuteAll(UserInterface.IsMuteAll, false);
+            if (UserInterface.IsMuteAll)
+	        {
+	        	ToogleMuteAll(false); 
+	        }
         }
 
-        private static void ToogleMuteAll(bool active, bool endGame)
+        private static void ToogleMuteAll(bool endGame)
         {
-            if (!active)
-            {
-                return;
-            }
-
             if (endGame)
             {
                 LeagueSharp.Game.Say(@"/mute all");
@@ -76,7 +72,10 @@ namespace RelaxedWinner
                     return;
                 }
 
-                ToogleMuteAll(UserInterface.IsMuteAll, true);
+                if (UserInterface.IsMuteAll)
+                {
+                    ToogleMuteAll(true);
+                }
 
                 if (UserInterface.IsEndMessageAll)
                 {
