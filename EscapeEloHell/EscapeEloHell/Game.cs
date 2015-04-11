@@ -11,6 +11,12 @@ namespace RelaxedWinner
 
         public static void Game_OnStart(EventArgs args)
         {
+            if (LeagueSharp.Game.ClockTime > 70)
+            {
+                // game running more than 1 minute - start is over!
+                return;
+            }
+
             if (RelaxedWinnerDll.RelaxedWinner.RepeatMaximum(20, RelaxedWinnerDll.RelaxedWinner.MessageData.GameStart))
             {
                 if (UserInterface.IsStartMessageTeam)
@@ -63,6 +69,7 @@ namespace RelaxedWinner
 
         internal static void OnNotify(GameNotifyEventArgs args)
         {
+            LeagueSharp.Game.PrintChat(LeagueSharp.Game.ClockTime.ToString());
             if (string.Equals(args.EventId.ToString(), "OnHQKill") || args.EventId == GameEventId.OnHQKill)
             {
                 if (UserInterface.Menu == null || !UserInterface.IsEnabled)

@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlawlessKalistaTest", "Flaw
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AI", "AI", "{B6CDF7EB-C594-492F-88F4-49074C7165D5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AIBuyRecommandedItems", "AIBuyRecommandedItems\AIBuyRecommandedItems.csproj", "{0CE6297C-4342-4CBD-8486-8B5D23A915B6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -133,6 +135,16 @@ Global
 		{CCB89CC8-CCFE-44FE-9367-CAE0ADEE5630}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{CCB89CC8-CCFE-44FE-9367-CAE0ADEE5630}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{CCB89CC8-CCFE-44FE-9367-CAE0ADEE5630}.Release|x86.ActiveCfg = Release|Any CPU
+		{0CE6297C-4342-4CBD-8486-8B5D23A915B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CE6297C-4342-4CBD-8486-8B5D23A915B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CE6297C-4342-4CBD-8486-8B5D23A915B6}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{0CE6297C-4342-4CBD-8486-8B5D23A915B6}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{0CE6297C-4342-4CBD-8486-8B5D23A915B6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0CE6297C-4342-4CBD-8486-8B5D23A915B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CE6297C-4342-4CBD-8486-8B5D23A915B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CE6297C-4342-4CBD-8486-8B5D23A915B6}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{0CE6297C-4342-4CBD-8486-8B5D23A915B6}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{0CE6297C-4342-4CBD-8486-8B5D23A915B6}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -147,5 +159,6 @@ Global
 		{966668E3-A807-4BD8-92E8-05B2BB3D7A9F} = {D307EF66-CF3C-4C82-BCDA-78D6F809B5CB}
 		{490603CA-F8B2-4C1B-842F-6DBB5EE0D8F8} = {D307EF66-CF3C-4C82-BCDA-78D6F809B5CB}
 		{CCB89CC8-CCFE-44FE-9367-CAE0ADEE5630} = {B09DE2F9-9436-481F-AF90-95B41C0D4691}
+		{0CE6297C-4342-4CBD-8486-8B5D23A915B6} = {B6CDF7EB-C594-492F-88F4-49074C7165D5}
 	EndGlobalSection
 EndGlobal
