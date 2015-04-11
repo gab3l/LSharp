@@ -69,7 +69,6 @@ namespace RelaxedWinner
 
         internal static void OnNotify(GameNotifyEventArgs args)
         {
-            LeagueSharp.Game.PrintChat(LeagueSharp.Game.ClockTime.ToString());
             if (string.Equals(args.EventId.ToString(), "OnHQKill") || args.EventId == GameEventId.OnHQKill)
             {
                 if (UserInterface.Menu == null || !UserInterface.IsEnabled)
