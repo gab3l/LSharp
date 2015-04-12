@@ -8,7 +8,7 @@ namespace RelaxedWinner
     {
         private static void RemoveEventHandler(EventArgs args)
         {
-            LeagueSharp.Game.OnStart -= Game.Game_OnStart;
+            //LeagueSharp.Game.OnStart -= Game.Game_OnStart;
             LeagueSharp.Game.OnNotify -= Game.OnNotify;
         }
 
@@ -25,7 +25,7 @@ namespace RelaxedWinner
                 return;
             }
 
-            LeagueSharp.Game.OnStart += Game.Game_OnStart;
+            //LeagueSharp.Game.OnStart += Game.Game_OnStart;
             LeagueSharp.Game.OnNotify += Game.OnNotify;
             CustomEvents.Game.OnGameEnd += RemoveEventHandler;
         }

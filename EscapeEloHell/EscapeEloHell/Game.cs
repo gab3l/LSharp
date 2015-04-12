@@ -8,16 +8,10 @@ namespace RelaxedWinner
     public class Game
     {
         private static readonly Random Random = new Random(20000);
+        private static bool isAlreadyStarted;
 
         public static void Game_OnStart(EventArgs args)
         {
-            //if (LeagueSharp.Game.ClockTime > 70)
-            //{
-            //    LeagueSharp.Game.PrintChat((LeagueSharp.Game.ClockTime.ToString());
-            //    // game running more than 1 minute - start is over!
-            //    return;
-            //}
-
             if (UserInterface.IsStartMessageTeam)
             {
                 ChatTalk(
@@ -65,6 +59,13 @@ namespace RelaxedWinner
 
         internal static void OnNotify(GameNotifyEventArgs args)
         {
+            HandleGameStart();
+
+            HandleGameEnd(args);
+        }
+
+        private static void HandleGameEnd(GameNotifyEventArgs args)
+        {
             if (string.Equals(args.EventId.ToString(), "OnHQKill") || args.EventId == GameEventId.OnHQKill)
             {
                 if (UserInterface.Menu == null || !UserInterface.IsEnabled)
@@ -80,20 +81,34 @@ namespace RelaxedWinner
                 if (UserInterface.IsEndMessageAll)
                 {
                     ChatTalk(
-                         1000, 2250,
+                        1000, 2250,
                         @"/all " +
-                        RelaxedWinnerDll.RelaxedWinner.GetMessage(RelaxedWinnerDll.RelaxedWinner.MessageData.GameEnd)
-                            .Message);
+                        RelaxedWinnerDll.RelaxedWinner.GetMessage(RelaxedWinnerDll.RelaxedWinner.MessageData.GameEnd).Message);
                 }
 
                 if (UserInterface.IsEndMessageTeam)
                 {
                     ChatTalk(
                         3000, 4000,
-                        RelaxedWinnerDll.RelaxedWinner.GetMessage(RelaxedWinnerDll.RelaxedWinner.MessageData.GameEnd)
-                            .Message);
+                        RelaxedWinnerDll.RelaxedWinner.GetMessage(RelaxedWinnerDll.RelaxedWinner.MessageData.GameEnd).Message);
                 }
             }
+        }
+
+        private static void HandleGameStart()
+        {
+            if (AlreadyLoaded())
+            {
+                return;
+            }
+
+            isAlreadyStarted = true;
+            Game_OnStart(null);
+        }
+
+        private static bool AlreadyLoaded()
+        {
+            return !isAlreadyStarted && LeagueSharp.Game.ClockTime > 15;
         }
     }
 }
