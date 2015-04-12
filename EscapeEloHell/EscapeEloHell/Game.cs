@@ -59,8 +59,7 @@ namespace RelaxedWinner
 
         internal static void OnNotify(GameNotifyEventArgs args)
         {
-            HandleGameStart();
-
+            //HandleGameStart();
             HandleGameEnd(args);
         }
 

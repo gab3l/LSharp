@@ -8,7 +8,7 @@ namespace RelaxedWinner
     {
         private static void RemoveEventHandler(EventArgs args)
         {
-            //LeagueSharp.Game.OnStart -= Game.Game_OnStart;
+            LeagueSharp.Game.OnStart -= Game.Game_OnStart;
             LeagueSharp.Game.OnNotify -= Game.OnNotify;
         }
 
@@ -17,15 +17,8 @@ namespace RelaxedWinner
             Initialize();
 
             LeagueSharp.Game.PrintChat("Relaxed Winner loaded.");
-            //LeagueSharp.Game.PrintChat("Change messages from RelaxedWinner in " + Files.Folder + @"\" + Files.FileName);
 
-            if (!UserInterface.IsEnabled)
-            {
-                LeagueSharp.Game.PrintChat("Relaxed Winner disabled!");
-                return;
-            }
-
-            //LeagueSharp.Game.OnStart += Game.Game_OnStart;
+            LeagueSharp.Game.OnStart += Game.Game_OnStart;
             LeagueSharp.Game.OnNotify += Game.OnNotify;
             CustomEvents.Game.OnGameEnd += RemoveEventHandler;
         }
