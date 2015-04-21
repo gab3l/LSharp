@@ -49,41 +49,40 @@ namespace AIM.Plugins
 
         public override void OnUpdate(EventArgs args)
         {
-			var target = TargetSelector.GetTarget(900, TargetSelector.DamageType.Magical);
-
+			
             if (ComboMode)
             {
 				
-				if (target == null || Player.IsChannelingImportantSpell()) // Check if there is a target
+				if (Target == null || Player.IsChannelingImportantSpell()) // Check if there is a target
 				{
 					return;
 				}
-				 if (R.IsReady()  && Player.CountEnemiesInRange(R.Range) > 1)
+				 if (R.IsReady())
 				{
-					 R.Cast(target.ServerPosition);
+					 R.Cast(Target.ServerPosition);
 				}
-                if (Q.IsReady())
+                if (!Q.IsReady())
                 {
-                    Q.CastOnUnit(target);
+                    return;
                 }
-
+				Q.CastOnUnit(Target);
                 if (E.IsReady())
                 {
-                    E.CastOnUnit(target);
+                    E.CastOnUnit(Target);
 					return;
                 }
 				if (W.IsReady())
 				{
 					Game.PrintChat("Hello");
-					W.CastOnUnit(target);
+					W.CastOnUnit(Target);
 				}
             }
 
             if (HarassMode)
             {
-                if (E.CastCheck(target, "Harass.E"))
+                if (E.CastCheck(Target, "Harass.E"))
                 {
-                    E.CastOnUnit(target);
+                    E.CastOnUnit(Target);
                 }
             }
         }

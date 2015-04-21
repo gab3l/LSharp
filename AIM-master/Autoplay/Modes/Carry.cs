@@ -12,7 +12,7 @@ namespace AIM.Autoplay.Modes
     {
         public Carry()
         {
-            Game.OnUpdate += OnGameUpdate;
+            Game.OnGameUpdate += OnGameUpdate;
             CustomEvents.Game.OnGameLoad += OnGameLoad;
             Obj_AI_Base.OnProcessSpellCast += OnProcessSpellCast;
         }

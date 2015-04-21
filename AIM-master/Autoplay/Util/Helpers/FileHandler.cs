@@ -10,7 +10,7 @@ namespace AIM.Autoplay.Util.Helpers
 {
     internal class FileHandler
     {
-        private static readonly string CustomBuildsPath = Config.AppDataDirectory + @"\AIM\";
+        private static readonly string CustomBuildsPath = Config.LeagueSharpDirectory + @"\AIM\";
         public static string TheFile;
         public static ItemId[] CustomShopList;
 

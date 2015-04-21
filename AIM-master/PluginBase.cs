@@ -381,7 +381,7 @@ namespace AIM
         /// </summary>
         private void InitPluginEvents()
         {
-            Game.OnUpdate += OnUpdate;
+            Game.OnGameUpdate += OnUpdate;
             Drawing.OnDraw += OnDraw;
             Orbwalking.BeforeAttack += OnBeforeAttack;
             Orbwalking.AfterAttack += OnAfterAttack;

@@ -515,7 +515,7 @@ namespace AIM.Util
 
             #endregion
 
-            Game.OnUpdate += Game_OnGameUpdate;
+            Game.OnGameUpdate += Game_OnGameUpdate;
             Obj_AI_Base.OnProcessSpellCast += Obj_AI_Base_OnProcessSpellCast;
         }
 

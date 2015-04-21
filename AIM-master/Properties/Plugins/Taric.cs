@@ -1,7 +1,7 @@
 ﻿#region LICENSE
 
 // Copyright 2014-2015 Support
-// FiddleSticks.cs is part of Support.
+// Taric.cs is part of Support.
 // 
 // Support is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -16,7 +16,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Support. If not, see <http://www.gnu.org/licenses/>.
 // 
-// Filename: Support/Support/FiddleSticks.cs
+// Filename: Support/Support/Taric.cs
 // Created:  01/10/2014
 // Date:     20/01/2015/11:20
 // Author:   h3h3
@@ -37,53 +37,53 @@ namespace AIM.Plugins
 
     #endregion
 
-    public class FiddleSticks : PluginBase
+    public class Taric : PluginBase
     {
-        public FiddleSticks()
+        public Taric()
         {
-            Q = new Spell(SpellSlot.Q, 575);
-            W = new Spell(SpellSlot.W, 575);
-            E = new Spell(SpellSlot.E, 750);
-            R = new Spell(SpellSlot.R, 800);
+            Q = new Spell(SpellSlot.Q, 750);
+            W = new Spell(SpellSlot.W, 200);
+            E = new Spell(SpellSlot.E, 625);
+            R = new Spell(SpellSlot.R, 200);
         }
 
         public override void OnUpdate(EventArgs args)
         {
-			var target = TargetSelector.GetTarget(900, TargetSelector.DamageType.Magical);
-
             if (ComboMode)
             {
-				
-				if (target == null || Player.IsChannelingImportantSpell()) // Check if there is a target
-				{
-					return;
-				}
-				 if (R.IsReady()  && Player.CountEnemiesInRange(R.Range) > 1)
-				{
-					 R.Cast(target.ServerPosition);
-				}
-                if (Q.IsReady())
+                var ally = Helpers.AllyBelowHp(ConfigValue<Slider>("ComboHealthQ").Value, Q.Range);
+                if (Q.CastCheck(ally, "ComboQ", true, false))
                 {
-                    Q.CastOnUnit(target);
+                    Q.Cast(ally);
                 }
 
-                if (E.IsReady())
+                if (W.CastCheck(Target, "ComboW"))
                 {
-                    E.CastOnUnit(target);
-					return;
+                    W.Cast();
                 }
-				if (W.IsReady())
-				{
-					Game.PrintChat("Hello");
-					W.CastOnUnit(target);
-				}
+
+                if (E.CastCheck(Target, "ComboE"))
+                {
+                    E.Cast(Target);
+                }
+
+                if (R.CastCheck(Target, "ComboR"))
+                {
+                    R.Cast();
+                }
             }
 
             if (HarassMode)
             {
-                if (E.CastCheck(target, "Harass.E"))
+                var ally = Helpers.AllyBelowHp(ConfigValue<Slider>("HarassHealthQ").Value, Q.Range);
+                if (Q.CastCheck(ally, "HarassQ", true, false))
                 {
-                    E.CastOnUnit(target);
+                    Q.Cast(ally);
+                }
+
+                if (E.CastCheck(Target, "HarassE"))
+                {
+                    E.Cast(Target);
                 }
             }
         }
@@ -95,9 +95,9 @@ namespace AIM.Plugins
                 return;
             }
 
-            if (Q.CastCheck(gapcloser.Sender, "Gapcloser.Q"))
+            if (E.CastCheck(gapcloser.Sender, "GapcloserE"))
             {
-                Q.CastOnUnit(gapcloser.Sender);
+                E.Cast(gapcloser.Sender);
             }
         }
 
@@ -108,35 +108,33 @@ namespace AIM.Plugins
                 return;
             }
 
-            if (Q.CastCheck(unit, "Interrupt.Q"))
+            if (E.CastCheck(unit, "InterruptE"))
             {
-                Q.CastOnUnit(unit);
-                return;
-            }
-
-            if (E.CastCheck(unit, "Interrupt.E"))
-            {
-                E.CastOnUnit(unit);
+                E.Cast(unit);
             }
         }
 
         public override void ComboMenu(Menu config)
         {
-            config.AddBool("Combo.Q", "Use Q", true);
-            config.AddBool("Combo.E", "Use E", true);
+            config.AddBool("ComboQ", "Use Q", true);
+            config.AddBool("ComboW", "Use W", true);
+            config.AddBool("ComboE", "Use E", true);
+            config.AddBool("ComboR", "Use R", true);
+            config.AddSlider("ComboHealthQ", "Health to Heal", 20, 1, 100);
         }
 
         public override void HarassMenu(Menu config)
         {
-            config.AddBool("Harass.E", "Use E", true);
+            config.AddBool("HarassQ", "Use Q", true);
+            config.AddBool("HarassE", "Use E", true);
+            config.AddSlider("HarassHealthQ", "Health to Heal", 20, 1, 100);
         }
 
         public override void InterruptMenu(Menu config)
         {
-            config.AddBool("Gapcloser.Q", "Use Q to Interrupt Gapcloser", true);
+            config.AddBool("GapcloserE", "Use E to Interrupt Gapcloser", true);
 
-            config.AddBool("Interrupt.Q", "Use Q to Interrupt Spells", true);
-            config.AddBool("Interrupt.E", "Use E to Interrupt Spells", true);
+            config.AddBool("InterruptE", "Use E to Interrupt Spells", true);
         }
     }
 }

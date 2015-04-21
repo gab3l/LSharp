@@ -76,7 +76,7 @@ namespace AIM.Util
                 .SubMenu("Mana")
                 .AddItem(new MenuItem("ManaPercent", "MP Trigger Percent").SetValue(new Slider(30)));
 
-            Game.OnUpdate += OnGameUpdate;
+            Game.OnGameUpdate += OnGameUpdate;
         }
 
         private void OnGameUpdate(EventArgs args)

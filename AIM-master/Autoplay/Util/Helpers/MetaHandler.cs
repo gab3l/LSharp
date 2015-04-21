@@ -35,13 +35,13 @@ namespace AIM.Autoplay.Util.Helpers
             "Kayle",  "KogMaw", "LeBlanc", "Lissandra", "Lulu", "Lux", "Malphite", "Malzahar",
             "Maokai", "Morderkaiser", "Morgana", "Nami", "Nautilus", "Nidalee", "Nunu", "Orianna", "RekSai", "Rumble",
             "Ryze", "Shaco", "Singed", "Sona", "Soraka", "Swain", "Syndra", "Teemo", "Thresh", "TwistedFate", "veigar",
-            "VelKoz", "Viktor", "Vladimir", "Xerath", "Ziggs", "Zilean", "Zyra"
+            "VelKoz", "Viktor", "Xerath", "Ziggs", "Zilean", "Zyra", "Vladimir",
         };
 		public static string[] AD =
         {
             "ashe", "caitlyn", "corki", "draven", "ezreal", "graves", "kogmaw",
             "missfortune", "quinn", "sivir", "talon", "tristana", "twitch", "urgot", "varus", "vayne", "zed", "jinx",
-            "yasuo", "lucian", "shaco", "masteryi"	
+            "yasuo", "lucian", "shaco", "masteryi", "kalista"	
         };
 		private static readonly string[] ADT =
         {
@@ -54,7 +54,7 @@ namespace AIM.Autoplay.Util.Helpers
         {
               "galio",  "malphite", "poppy", "elise",
             "maokai", "rammus", "sejuani", "shen", "singed", "zac",
-            "nunu",  "alistar", "nautilus", "rumble", 
+            "nunu",  "alistar", "nautilus", "rumble",
         };
 		private static readonly string[] FT =
         {
@@ -87,16 +87,15 @@ namespace AIM.Autoplay.Util.Helpers
 
         private static readonly ItemId[] ARAMShopListAP =
         {
-            ItemId.Zhonyas_Hourglass, ItemId.Rabadons_Deathcap,
-            ItemId.Rod_of_Ages, ItemId.Rylais_Crystal_Scepter,ItemId.Athenes_Unholy_Grail,
-            ItemId.Will_of_the_Ancients, ItemId.Liandrys_Torment, ItemId.Void_Staff, ItemId.Abyssal_Scepter, ItemId.Sorcerers_Shoes
+            ItemId.Athenes_Unholy_Grail, ItemId.Sorcerers_Shoes, ItemId.Rabadons_Deathcap, ItemId.Zhonyas_Hourglass, ItemId.Void_Staff, ItemId.Morellonomicon,
+            ItemId.Rod_of_Ages, ItemId.Rylais_Crystal_Scepter,
+            ItemId.Will_of_the_Ancients, ItemId.Liandrys_Torment, ItemId.Abyssal_Scepter
         };
 
-	 private static readonly ItemId[] ARAMShopListEN =
+	    private static readonly ItemId[] ARAMShopListEN =
         {
             ItemId.Zhonyas_Hourglass, ItemId.Rabadons_Deathcap,
-            ItemId.Rylais_Crystal_Scepter,
-            ItemId.Will_of_the_Ancients, ItemId.Liandrys_Torment, ItemId.Void_Staff, ItemId.Abyssal_Scepter, ItemId.Sorcerers_Shoes
+            ItemId.Rylais_Crystal_Scepter, ItemId.Liandrys_Torment, ItemId.Void_Staff, ItemId.Abyssal_Scepter, ItemId.Sorcerers_Shoes
         };
 		
 		private static readonly ItemId[] ARAMShopListFT =
@@ -232,8 +231,6 @@ namespace AIM.Autoplay.Util.Helpers
 					Console.WriteLine("EN");
                     return ARAMShopListEN;
                 }
-
-
 				 if (AD.Any(adchamp => Heroes.Me.BaseSkinName.ToLower() == adchamp.ToLower()))
                 {
 					Console.WriteLine("ADC");
